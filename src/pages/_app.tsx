@@ -1,7 +1,15 @@
 import './globals.scss';
+import { ChakraProvider } from '@chakra-ui/react'
 
-function MyApp({ Component, pageProps }) {
-    return <Component {...pageProps} />
+import { AppProps } from "next/app";
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return(
+          <ChakraProvider>
+            <Component {...pageProps} />;
+          </ChakraProvider>
+      )
+
 }
 
-export default MyApp
+export default MyApp;

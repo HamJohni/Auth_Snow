@@ -1,7 +1,7 @@
-import auth from "./auth.module.scss"
 import Form from "@/components/Form/Form";
+import auth from "./auth.module.scss";
 
-const Login = () => {
+const Auth = () => {
     return(
         <section className={auth.auth}>
             <Form/>
@@ -9,4 +9,4 @@ const Login = () => {
     )
 }
 
-export default Login
+export default Auth

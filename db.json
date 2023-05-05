@@ -1,7 +1,9 @@
 {
-  "users": [
+  "developers": [
     {
-      "name": "asdas"
+      "name": "ПРивет, как дела",
+      "post": "frontend",
+      "id": 1
     }
   ]
 }

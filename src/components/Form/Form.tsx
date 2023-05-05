@@ -1,22 +1,53 @@
-import auth from '../../pages/auth/auth.module.scss'
+import auth from '../Auth/auth.module.scss'
 import {AiOutlineUserAdd} from "react-icons/ai";
-import {useForm} from "react-hook-form";
-import {IUser} from "@/models/FormType/FormType";
+import axios from "axios";
+import {useToast} from "@chakra-ui/react";
 
 const Form = () => {
 
-    const {
-        register,
-        handleSubmit,
-        reset,
-        formState:{errors}} = useForm<IUser>()
+    const toast = useToast()
 
-    const registerUser = (data) => {
-        console.log(data)
+    const registerUser = (e) => {
+        e.preventDefault()
+
+        let userInfo = {
+            name: e.target[0].value,
+            post: e.target[1].value
+        }
+
+        axios.post('http://localhost:4080/developers', {...userInfo})
+            .then(({data}) => {
+
+                localStorage.setItem('user', JSON.stringify({
+                    token: data.accessToken,
+                    ...data
+                }))
+                toast({
+                    title: 'Account created',
+                    description: "We've created your account for you.",
+                    status: 'success',
+                    duration: 5000,
+                    isClosable: true,
+                    position: 'top-left',
+                })
+
+                e.target[0].value =''
+
+            })
+            .catch((err) => {
+                toast({
+                    title: "Something went to bad",
+                    description: err.message,
+                    status: 'error',
+                    duration: 5000,
+                    isClosable: true,
+                    position: 'top-left',
+                })
+            })
     }
 
     return(
-        <form className={auth.form} noValidate onSubmit={handleSubmit(registerUser)}>
+        <form className={auth.form} onSubmit={(e) => registerUser(e)}>
 
             <div className={auth.form__left}>
                 <span className={auth.form__left_circle}>
@@ -30,18 +61,11 @@ const Form = () => {
             <div className={auth.form__right}>
                 <div className={auth.form__right_content}>
                     <label className={auth.form__right_label}>
-                        <input type="text"
-                               {...register('name', {
-                                   required: {
-                                       message: "required field" , value: true
-                                   }
-                               })}
-                               className={auth.form__right_input} placeholder="Name"/>
+                        <input type="text" className={auth.form__right_input} placeholder="Name"/>
                     </label>
 
                     <label className={auth.form__right_label}>
-                        <select className={auth.form__right_input}>
-                            <option className={auth.form__right_option}>Выберите должность:</option>
+                        <select className={auth.form__right_input} >
                             <option value="frontend" className={auth.form__right_option}>Frontend</option>
                             <option value="backend" className={auth.form__right_option}>Backend</option>
                             <option value="ui/ux" className={auth.form__right_option}>UI/UX</option>
