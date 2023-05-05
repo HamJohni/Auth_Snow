@@ -6,5 +6,6 @@
     text-decoration: none;
 }
 
-
-html{}
+button{
+    cursor: pointer;
+}
