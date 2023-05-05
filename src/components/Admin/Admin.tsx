@@ -7,7 +7,7 @@ interface DataType {
   key: string;
   name: string;
   gender: string;
-  tags: string[];
+  tags: string;
   add: string;
 }
 const columns: ColumnsType<DataType> = [
@@ -26,15 +26,9 @@ const columns: ColumnsType<DataType> = [
     title: "Должность",
     key: "tags",
     dataIndex: "tags",
-    render: (tags: string[]) => (
+    render: (text) => (
       <span>
-        {tags.map((tag) => {
-          return (
-            <Tag color={"green"} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
+        <Tag color={"green"}>{text.toUpperCase()}</Tag>
       </span>
     ),
   },
@@ -53,28 +47,28 @@ const data: DataType[] = [
   {
     key: "1",
     name: "Tilek Zhyrgalbekov",
-    tags: ["Frontend Developer"],
+    tags: "Frontend Developer",
     add: "100",
     gender: "М",
   },
   {
     key: "2",
     name: "Belek Shamhiev",
-    tags: ["Loh"],
+    tags: "Loh",
     add: "100",
     gender: "Ж",
   },
   {
     key: "3",
     name: "Joe Black",
-    tags: ["Python Developer"],
+    tags: "Python Developer",
     add: "100",
     gender: "М",
   },
   {
     key: "4",
     name: "Мать Белека",
-    tags: ["Cross Fisting"],
+    tags: "Cross Fisting",
     add: "100",
     gender: "undefined",
   },
