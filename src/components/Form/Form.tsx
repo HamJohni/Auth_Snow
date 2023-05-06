@@ -2,6 +2,7 @@ import auth from '../Auth/auth.module.scss'
 import {AiOutlineUserAdd} from "react-icons/ai";
 import axios from "axios";
 import {useToast} from "@chakra-ui/react";
+import { v4 as uuidv4 } from 'uuid';
 
 const Form = () => {
 
@@ -11,6 +12,7 @@ const Form = () => {
         e.preventDefault()
 
         let userInfo = {
+            id: uuidv4(),
             name: e.target[0].value,
             post: e.target[1].value
         }
@@ -22,6 +24,7 @@ const Form = () => {
                     token: data.accessToken,
                     ...data
                 }))
+
                 toast({
                     title: 'Account created',
                     description: "We've created your account for you.",
