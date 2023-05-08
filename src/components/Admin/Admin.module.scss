@@ -1,4 +1,14 @@
 ﻿.container {
   width: 90%;
   margin: 0 auto;
+  padding: 50px 0 50px 0;
+  .panel {
+    display: flex;
+    flex-direction: column;
+    .under {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 40px;
+    }
+  }
 }

@@ -1,100 +1,171 @@
-import React, {useEffect} from "react";
-import {Space, Table, Tag} from "antd";
-import type {ColumnsType} from "antd/es/table";
+﻿import React, { useState } from "react";
 import s from "./Admin.module.scss";
-import {useAppDispatch, useAppSelector} from "@/hooks/redux";
-import {getAllDevelopers} from "@/store/reducers/developers";
 
-interface DataType {
-  key: string;
+import {
+  SimpleGrid,
+  Card,
+  CardHeader,
+  Heading,
+  CardBody,
+  Text,
+  CardFooter,
+  Button,
+  Wrap,
+  WrapItem,
+  Avatar,
+  Stack,
+  Box,
+} from "@chakra-ui/react";
+
+
+interface User {
+  id: number;
   name: string;
-  gender: string;
-  tags: string;
-  add: string;
+  job: string;
+  img: string;
 }
 
-const columns: ColumnsType<DataType> = [
+const users: User[] = [
   {
-    title: "Имя",
-    dataIndex: "name",
-    key: "name",
-    render: (text) => <a>{text}</a>,
+    id: 1,
+    name: "Kera Yan",
+    job: "Frontend Developer",
+    img: "https://bit.ly/dan-abramov",
   },
   {
-    title: "Пол",
-    dataIndex: "gender",
-    key: "gender",
+    id: 2,
+    name: "Belek Belekov",
+    job: "Senior Mom Deviloper",
+    img: "https://bit.ly/tioluwani-kolawole",
   },
   {
-    title: "Должность",
-    key: "tags",
-    dataIndex: "tags",
-    render: (text) => (
-      <span>
-        <Tag color={"green"}>{text.toUpperCase()}</Tag>
-      </span>
-    ),
+    id: 4,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/kent-c-dodds",
   },
   {
-    title: "Штраф",
-    key: "action",
-    render: (_, record) => (
-      <Space size="middle">
-        <a> Штрафануть - {record.add}</a>
-      </Space>
-    ),
+    id: 4,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/ryan-florence",
+  },
+  {
+    id: 5,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/prosper-baba",
+  },
+  {
+    id: 6,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/code-beast",
+  },
+  {
+    id: 7,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/sage-adebayo",
+  },
+  {
+    id: 8,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/sage-adebayo",
+  },
+  {
+    id: 9,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/code-beast",
+  },
+  {
+    id: 10,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/ryan-florence",
+  },
+  {
+    id: 11,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/sage-adebayo",
+  },
+  {
+    id: 12,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/code-beast",
+  },
+  {
+    id: 13,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/ryan-florence",
+  },
+  {
+    id: 14,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/sage-adebayo",
+  },
+  {
+    id: 15,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/code-beast",
+  },
+  {
+    id: 16,
+    name: "Chort Chortov",
+    job: "Python Developer",
+    img: "https://bit.ly/ryan-florence",
   },
 ];
 
-const data: DataType[] = [
-  {
-    key: "1",
-    name: "Tilek Zhyrgalbekov",
-    tags: "Frontend Developer",
-    add: "100",
-    gender: "М",
-  },
-  {
-    key: "2",
-    name: "Belek Shamhiev",
-    tags: "Loh",
-    add: "100",
-    gender: "Ж",
-  },
-  {
-    key: "3",
-    name: "Joe Black",
-    tags: "Python Developer",
-    add: "100",
-    gender: "М",
-  },
-  {
-    key: "4",
-    name: "Мать Белека",
-    tags: "Cross Fisting",
-    add: "100",
-    gender: "undefined",
-  },
-];
-
-const Admin: React.FC = () => {
-
-  const dispatch = useAppDispatch()
-
-  const {developers} = useAppSelector((state) => state.developers)
-
-  useEffect(() => {
-    dispatch(getAllDevelopers())
-  },[])
-
-  console.log(developers)
-  
+const Admin = () => {
   return (
-    <div className={s.container}>
-      <Table columns={columns} pagination={false} dataSource={data}/>
-    </div>
+    <>
+      <div className={s.container}>
+        <div className={s.panel}>
+          <SimpleGrid
+            spacing={4}
+            templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
+          >
+            {users.map((item) => (
+              <Card>
+                <CardHeader>
+                  <Wrap>
+                    <WrapItem>
+                      <Avatar name="Dan Abrahmov" src={item.img} />
+                    </WrapItem>
+                  </Wrap>
+                  <Heading size="md">{item.name}</Heading>
+                </CardHeader>
+                <CardBody>
+                  <Text>{item.job}</Text>
+                </CardBody>
+                <CardFooter>
+                  <Button>Select</Button>
+                </CardFooter>
+              </Card>
+            ))}
+          </SimpleGrid>
+          <div className={s.under}>
+            <Stack direction="row" spacing={4} align="end">
+              <Button colorScheme="teal" variant="solid">
+                Отметить
+              </Button>
+              <Button colorScheme="red" variant="outline">
+                Не пришел
+              </Button>
+            </Stack>
+          </div>
+        </div>
+      </div>
+    </>
   );
 };
 
 export default Admin;
-

@@ -1,10 +1,10 @@
-﻿import Admin from "@/components/Admin/Admin";
+﻿import UserList from "@/components/Admin/Admin";
 import React from "react";
 
 const index = () => {
   return (
     <>
-      <Admin />
+      <UserList />
     </>
   );
 };
