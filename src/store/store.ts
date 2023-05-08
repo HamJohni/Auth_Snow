@@ -4,7 +4,8 @@ import developers from "@/store/reducers/developers";
 import user from "@/store/reducers/user";
 
 const rootReducer = combineReducers({
-    developers, user
+    developers,
+    user
 })
 
 

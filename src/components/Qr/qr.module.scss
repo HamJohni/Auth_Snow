@@ -14,6 +14,7 @@
       rgba(108, 149, 252, 0.67) -20.55%,
       rgba(109, 149, 252, 0) 25.97%
     );
+
     position: absolute;
     height: 100%;
     width: 100%;
@@ -63,6 +64,13 @@
       color: white;
       font-size: 30px;
       line-height: 20px;
+    }
+
+    &_post {
+      margin-top: 10px;
+      font-size: 20px;
+      line-height: 20px;
+      color: #666666;
     }
 
     &_top {

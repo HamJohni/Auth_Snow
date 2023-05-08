@@ -3,10 +3,21 @@ import {AiOutlineUserAdd} from "react-icons/ai";
 import axios from "axios";
 import {useToast} from "@chakra-ui/react";
 import { v4 as uuidv4 } from 'uuid';
-import {userSlice} from "@/store/reducers/user";
-import {useAppDispatch} from "@/hooks/redux";
+import {useRouter} from "next/router";
+import {useAppSelector} from "@/hooks/redux";
+import {useEffect} from "react";
 
 const Form = () => {
+
+    const router = useRouter()
+
+    const {user} = useAppSelector(state => state.user)
+
+    useEffect(() => {
+        if(user !== null){
+            router.push('/')
+        }
+    },[])
 
     const toast = useToast()
 
@@ -39,6 +50,7 @@ const Form = () => {
 
                 e.target[0].value =''
 
+                router.push('/qr')
             })
             .catch((err) => {
                 toast({

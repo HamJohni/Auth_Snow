@@ -17,6 +17,24 @@
       "name": "ПРивет ",
       "post": "frontend",
       "fine": []
+    },
+    {
+      "id": "2cb21c7b-8ecb-49f6-a69e-a2688552653c",
+      "name": "Zhynubek Adilov",
+      "post": "frontend",
+      "fine": []
+    },
+    {
+      "id": "e57b6737-ea79-4905-9b39-1d5ad88143ea",
+      "name": "Belek",
+      "post": "frontend",
+      "fine": []
+    },
+    {
+      "id": "4a850ac3-92fa-441d-84e7-d26f69a6c38f",
+      "name": "Zhanybek Adilov",
+      "post": "frontend",
+      "fine": []
     }
   ]
 }
