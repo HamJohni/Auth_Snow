@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { Radio, Space, Table, Tag } from "antd";
-import type { ColumnsType } from "antd/es/table";
+import React, {useEffect} from "react";
+import {Space, Table, Tag} from "antd";
+import type {ColumnsType} from "antd/es/table";
 import s from "./Admin.module.scss";
+import {useAppDispatch, useAppSelector} from "@/hooks/redux";
+import {getAllDevelopers} from "@/store/reducers/developers";
 
 interface DataType {
   key: string;
@@ -76,9 +78,20 @@ const data: DataType[] = [
 ];
 
 const Admin: React.FC = () => {
+
+  const dispatch = useAppDispatch()
+
+  const {developers} = useAppSelector((state) => state.developers)
+
+  useEffect(() => {
+    dispatch(getAllDevelopers())
+  },[])
+
+  console.log(developers)
+  
   return (
     <div className={s.container}>
-      <Table columns={columns} pagination={false} dataSource={data}/>`
+      <Table columns={columns} pagination={false} dataSource={data}/>
     </div>
   );
 };

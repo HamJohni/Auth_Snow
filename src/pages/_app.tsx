@@ -11,11 +11,10 @@ function MyApp({ Component, pageProps }: AppProps) {
   return(
       <Provider store={store}>
           <ChakraProvider>
-            <Component {...pageProps} />;
+            <Component {...pageProps} />
           </ChakraProvider>
       </Provider>
       )
-
 }
 
 export default MyApp;

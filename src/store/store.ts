@@ -1,10 +1,10 @@
 import {combineReducers} from "redux";
 import {configureStore} from "@reduxjs/toolkit";
-import {developers} from "@/store/reducers/developers";
-
+import developers from "@/store/reducers/developers";
+import user from "@/store/reducers/user";
 
 const rootReducer = combineReducers({
-    developers
+    developers, user
 })
 
 
