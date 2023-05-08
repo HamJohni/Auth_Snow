@@ -1,6 +1,6 @@
-import './globals.scss';
+import './globals.css';
+import './Table.css'
 import { ChakraProvider } from '@chakra-ui/react'
-
 import { AppProps } from "next/app";
 import {Provider} from "react-redux";
 import {setupStore} from "@/store/store";
