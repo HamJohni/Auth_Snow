@@ -3,6 +3,8 @@ import {AiOutlineUserAdd} from "react-icons/ai";
 import axios from "axios";
 import {useToast} from "@chakra-ui/react";
 import { v4 as uuidv4 } from 'uuid';
+import {userSlice} from "@/store/reducers/user";
+import {useAppDispatch} from "@/hooks/redux";
 
 const Form = () => {
 
@@ -14,7 +16,8 @@ const Form = () => {
         let userInfo = {
             id: uuidv4(),
             name: e.target[0].value,
-            post: e.target[1].value
+            post: e.target[1].value,
+            fine: []
         }
 
         axios.post('http://localhost:4080/developers', {...userInfo})

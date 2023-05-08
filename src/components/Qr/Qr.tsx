@@ -1,7 +1,18 @@
-import qr from "./qr.module.scss";
-import { Avatar } from "@chakra-ui/react";
+import qr from './qr.module.scss'
+import {Avatar} from "@chakra-ui/react";
+import {useEffect} from "react";
+import {useAppDispatch, useAppSelector} from "@/hooks/redux";
+import userSlice from "@/store/reducers/user";
+
 
 const Qr = () => {
+
+    const dispatch = useAppDispatch()
+
+
+    const user = useAppSelector(state => state)
+
+    console.log(user)
   return (
     <section className={qr.qr}>
       <div className={qr.qr__content}>
@@ -17,7 +28,7 @@ const Qr = () => {
         </div>
       </div>
     </section>
-  );
+  )
 };
 
 export default Qr;
