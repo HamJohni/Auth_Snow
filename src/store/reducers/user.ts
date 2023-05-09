@@ -1,5 +1,20 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {IUser} from "@/models/FormType/FormType";
+import axios from "axios";
+
+export const getUser = createAsyncThunk(
+    "user/getUser",
+    async (id, userApi) => {
+        try {
+            const res = await axios.get(`http://localhost:4080/users?id=${id}`);
+
+            return res.data[0];
+
+        } catch (e) {
+            return userApi.rejectWithValue("Не удалось получить юзера");
+        }
+    }
+);
 
 interface UserState {
     user: IUser;
@@ -16,9 +31,18 @@ const initialState: UserState = {
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {
-        increment(state,action: PayloadAction<IUser>){
-            state.user = action.payload
+    reducers: {},
+    extraReducers: {
+        [getUser.rejected]: (state, action) => {
+            state.error = action.payload;
+            state.status = "error";
+        },
+        [getUser.pending]: (state) => {
+            state.status = "loading";
+        },
+        [getUser.fulfilled]: (state, action) => {
+            state.status = true;
+            state.user = action.payload;
         }
     }
 })

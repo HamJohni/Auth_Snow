@@ -1,23 +1,23 @@
 import qr from './qr.module.scss'
 import {Avatar} from "@chakra-ui/react";
 import {useAppDispatch, useAppSelector} from "@/hooks/redux";
-import {useEffect} from "react";
-import {userSlice} from "@/store/reducers/user";
+import {getUser, userSlice} from "@/store/reducers/user";
 import {useRouter} from "next/router";
+import {useEffect} from "react";
 
 const Qr = () => {
 
     const router = useRouter()
 
-    const {increment} = userSlice.actions
-
     const dispatch = useAppDispatch()
 
-    const {user} = useAppSelector(state => state.user)
+    const id = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
 
     useEffect(() => {
-        dispatch(increment(JSON.parse(localStorage.getItem('user'))))
-    }, [])
+        dispatch(getUser(id.id))
+    },[])
+
+    const {user} = useAppSelector(state => state.user)
 
     return (
         <section className={qr.qr}>

@@ -7,6 +7,25 @@
   background: black;
   position: relative;
 
+  &__link{
+    position: absolute;
+    top: 20px;
+    left: 50px;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    z-index: 5;
+
+    &_btn{
+      background: transparent;
+      border-radius: 5px;
+      color: white;
+      padding: 6px 20px;
+      font-weight: 600;
+      font-size: 19px;
+    }
+  }
+
   &::after{
     content: '';
     background: linear-gradient(268deg, rgba(109, 149, 252, 0.67) -20.55%, rgba(109, 149, 252, 0) 25.97%);
@@ -123,3 +142,4 @@
     }
   }
 }
+

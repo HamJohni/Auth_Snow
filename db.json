@@ -1,40 +1,135 @@
 {
-  "developers": [
+  "users": [
     {
-      "id": "24244ac0-79c0-4664-928b-0a9856b7786b",
-      "name": "ПРивет ",
+      "email": "joni.pacan@list.ru",
+      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
+      "name": "Zhanybek",
       "post": "frontend",
-      "fine": []
+      "id": "c9f2ef51-e825-4fc8-af34-4078851f584b",
+      "fine": [
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        }
+      ]
     },
     {
-      "id": "24244ac0-79c0-4664-928b-0a9856b7786b",
-      "name": "ПРивет ",
+      "email": "joni.pacan@list.ru",
+      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
+      "name": "iNAs",
       "post": "frontend",
-      "fine": []
+      "id": "c9f2ef51-eASJDNAJSD825-4fc8-af34-4078851f584b",
+      "fine": [
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        }
+      ]
     },
     {
-      "id": "24244ac0-79c0-4664-928b-0a9856b7786b",
-      "name": "ПРивет ",
+      "email": "joni.pacan@list.ru",
+      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
+      "name": "Aminea",
       "post": "frontend",
-      "fine": []
+      "id": "c9f2ef5ALKSMFAPSASF1-e825-4fc8-af34-4078851f584b",
+      "fine": [
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        }
+      ]
     },
     {
-      "id": "2cb21c7b-8ecb-49f6-a69e-a2688552653c",
-      "name": "Zhynubek Adilov",
+      "email": "joni.pacan@list.ru",
+      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
+      "name": "Erjan",
       "post": "frontend",
-      "fine": []
+      "id": "c9faslkfmalksmdamskdaslkdm2ef51-e825-4fc8-af34-4078851f584b",
+      "fine": [
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        }
+      ]
     },
     {
-      "id": "e57b6737-ea79-4905-9b39-1d5ad88143ea",
-      "name": "Belek",
+      "email": "joni.pacan@list.ru",
+      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
+      "name": "Ruslan",
       "post": "frontend",
-      "fine": []
+      "id": "c9f2easdas,ddasdsaf51-e825-4fc8-af34-4078851f584b",
+      "fine": [
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        }
+      ]
     },
     {
-      "id": "4a850ac3-92fa-441d-84e7-d26f69a6c38f",
-      "name": "Zhanybek Adilov",
-      "post": "frontend",
-      "fine": []
+      "email": "umar.pacan@list.ru",
+      "password": "$2a$10$53xMr3XY0K3W.9M19nv8wuUOevAZEU8ckMMouBYq2ghGw79hFrxyq",
+      "name": "Umar",
+      "post": "backend",
+      "id": "a5cda8eb-d012-4343-99d2-f0f9e6e4717c",
+      "fine": [
+        {
+          "id": "asdasdaads",
+          "data": "9 мая 2023 г.",
+          "cause": "Опоздал",
+          "time": "20:11",
+          "money": "100"
+        },
+        {
+          "id": "asdasdaaфds",
+          "data": "9 апреля 2023 г.",
+          "cause": "Не пришел",
+          "time": "20:14",
+          "money": "200"
+        },
+        {
+          "id": "asdasgdaads",
+          "data": "9 января 2026 г.",
+          "cause": "Опоздал",
+          "time": "20:14",
+          "money": "100"
+        },
+        {
+          "id": "asdasgdaads",
+          "data": "9 января 2026 г.",
+          "cause": "asa",
+          "time": "20:14",
+          "money": "100"
+        },
+        {
+          "id": "asdasgdaads",
+          "data": "9 января 2026 г.",
+          "cause": "asa",
+          "time": "20:14",
+          "money": "100"
+        },
+        {
+          "id": "asdasgdaads",
+          "data": "9 января 2026 г.",
+          "cause": "asa",
+          "time": "20:14",
+          "money": "100"
+        }
+      ]
     }
   ]
 }

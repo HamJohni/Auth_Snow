@@ -9,6 +9,7 @@ export const getAllDevelopers = createAsyncThunk(
       const res = await axios.get("http://localhost:4080/developers");
 
       return res.data;
+
     } catch (e) {
       return developersApi.rejectWithValue("Не удалось получить разработчиков");
     }

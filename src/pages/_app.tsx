@@ -3,11 +3,12 @@ import './Table.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import { AppProps } from "next/app";
 import {Provider} from "react-redux";
-import {setupStore} from "@/store/store";
+import store from "@/store/store";
 
-const store = setupStore()
+
 
 function MyApp({ Component, pageProps }: AppProps) {
+
   return(
       <Provider store={store}>
           <ChakraProvider>

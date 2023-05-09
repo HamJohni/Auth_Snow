@@ -1,7 +1,7 @@
 import Form from "@/components/Form/Form";
 import auth from "./auth.module.scss";
 
-const Auth = () => {
+const Register = () => {
   return (
     <section className={auth.auth}>
       <Form />
@@ -9,4 +9,4 @@ const Auth = () => {
   );
 };
 
-export default Auth;
+export default Register;

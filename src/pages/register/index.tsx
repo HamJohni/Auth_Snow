@@ -1,9 +1,9 @@
-import Auth from "@/components/Auth/Auth";
+import Register from "@/components/Register/Register";
 
 const Index = () => {
     return(
         <>
-            <Auth/>
+            <Register/>
         </>
     )
 }
