@@ -57,7 +57,7 @@ const CardList = ({ cards }: CardListProps) => {
       {cardList.map((card) => (
         <Flex
           key={card.id}
-          border={card.selected ? "2px solid green" : "2px solid gray"}
+          border={card.selected ? "2px solid yellow" : "2px solid gray"}
           borderRadius="lg"
           p="4"
           onClick={() => handleCardSelect(card.id)}
@@ -73,8 +73,12 @@ const CardList = ({ cards }: CardListProps) => {
         </Flex>
       ))}
       <Flex gap="4" justifyContent="center">
-        <Button onClick={handleMarkAttendance}>Пришли</Button>
-        <Button onClick={handleMarkAttendance}>Не пришли</Button>
+        <Button bg="green.600" onClick={handleMarkAttendance}>
+          Пришли
+        </Button>
+        <Button bg="red.600" onClick={handleMarkAttendance}>
+          Не пришли
+        </Button>
       </Flex>
     </VStack>
   );
