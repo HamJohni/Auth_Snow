@@ -139,8 +139,10 @@ const cards: Card[] = [
 const Admin = () => {
   return (
     <>
-      <div className={s.container}>
-        <CardList cards={cards} />
+      <div className={s.panel}>
+        <div className={s.container}>
+          <CardList cards={cards} />
+        </div>
       </div>
     </>
   );
