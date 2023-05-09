@@ -1,126 +1,134 @@
-﻿import React, { useState } from "react";
+﻿import { useState } from "react";
+import { Avatar, Button, Flex, Text, VStack } from "@chakra-ui/react";
 import s from "./Admin.module.scss";
 
-import {
-  SimpleGrid,
-  Card,
-  CardHeader,
-  Heading,
-  CardBody,
-  Text,
-  CardFooter,
-  Button,
-  Wrap,
-  WrapItem,
-  Avatar,
-  Stack,
-  Box,
-} from "@chakra-ui/react";
-
-
-interface User {
+interface Card {
   id: number;
   name: string;
   job: string;
   img: string;
+  selected: boolean;
 }
 
-const users: User[] = [
+interface CardListProps {
+  cards: Card[];
+}
+
+const CardList = ({ cards }: CardListProps) => {
+  const [selectAll, setSelectAll] = useState(false);
+  const [cardList, setCardList] = useState(cards);
+
+  const handleSelectAll = () => {
+    setSelectAll(!selectAll);
+    setCardList(
+      cardList.map((card) => ({
+        ...card,
+        selected: !selectAll,
+      }))
+    );
+  };
+
+  const handleCardSelect = (id: number) => {
+    setCardList(
+      cardList.map((card) => {
+        if (card.id === id) {
+          return {
+            ...card,
+            selected: !card.selected,
+          };
+        }
+        return card;
+      })
+    );
+  };
+
+  const handleMarkAttendance = () => {
+    const selectedCards = cardList.filter((card) => card.selected);
+    console.log("Selected cards:", selectedCards);
+  };
+
+  return (
+    <VStack spacing="4" align="stretch">
+      <Flex justify="space-between" align="center">
+        <Button onClick={handleSelectAll}>
+          {selectAll ? "Отменить выбор" : "Выбрать все"}
+        </Button>
+      </Flex>
+      {cardList.map((card) => (
+        <Flex
+          key={card.id}
+          border={card.selected ? "2px solid green" : "2px solid gray"}
+          borderRadius="lg"
+          p="4"
+          onClick={() => handleCardSelect(card.id)}
+          cursor="pointer"
+        >
+          <Flex gap="4" align="stretch">
+            <Avatar />
+            <VStack align="stretch">
+              <Text fontWeight="bold">{card.name}</Text>
+              <Text>{card.job}</Text>
+            </VStack>
+          </Flex>
+        </Flex>
+      ))}
+      <Flex gap="4" justifyContent="center">
+        <Button onClick={handleMarkAttendance}>Пришли</Button>
+        <Button onClick={handleMarkAttendance}>Не пришли</Button>
+      </Flex>
+    </VStack>
+  );
+};
+
+const cards: Card[] = [
   {
     id: 1,
     name: "Kera Yan",
     job: "Frontend Developer",
     img: "https://bit.ly/dan-abramov",
+    selected: false,
   },
   {
     id: 2,
     name: "Belek Belekov",
     job: "Senior Mom Deviloper",
     img: "https://bit.ly/tioluwani-kolawole",
+    selected: false,
   },
   {
     id: 4,
     name: "Chort Chortov",
     job: "Python Developer",
     img: "https://bit.ly/kent-c-dodds",
-  },
-  {
-    id: 4,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/ryan-florence",
+    selected: false,
   },
   {
     id: 5,
     name: "Chort Chortov",
     job: "Python Developer",
-    img: "https://bit.ly/prosper-baba",
+    img: "https://bit.ly/ryan-florence",
+    selected: false,
   },
   {
     id: 6,
     name: "Chort Chortov",
     job: "Python Developer",
-    img: "https://bit.ly/code-beast",
+    img: "https://bit.ly/prosper-baba",
+    selected: false,
   },
   {
     id: 7,
     name: "Chort Chortov",
     job: "Python Developer",
-    img: "https://bit.ly/sage-adebayo",
+    img: "https://bit.ly/code-beast",
+    selected: false,
   },
   {
     id: 8,
     name: "Chort Chortov",
     job: "Python Developer",
     img: "https://bit.ly/sage-adebayo",
-  },
-  {
-    id: 9,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/code-beast",
-  },
-  {
-    id: 10,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/ryan-florence",
-  },
-  {
-    id: 11,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/sage-adebayo",
-  },
-  {
-    id: 12,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/code-beast",
-  },
-  {
-    id: 13,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/ryan-florence",
-  },
-  {
-    id: 14,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/sage-adebayo",
-  },
-  {
-    id: 15,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/code-beast",
-  },
-  {
-    id: 16,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/ryan-florence",
+    selected: false,
   },
 ];
 
@@ -128,41 +136,7 @@ const Admin = () => {
   return (
     <>
       <div className={s.container}>
-        <div className={s.panel}>
-          <SimpleGrid
-            spacing={4}
-            templateColumns="repeat(auto-fill, minmax(200px, 1fr))"
-          >
-            {users.map((item) => (
-              <Card>
-                <CardHeader>
-                  <Wrap>
-                    <WrapItem>
-                      <Avatar name="Dan Abrahmov" src={item.img} />
-                    </WrapItem>
-                  </Wrap>
-                  <Heading size="md">{item.name}</Heading>
-                </CardHeader>
-                <CardBody>
-                  <Text>{item.job}</Text>
-                </CardBody>
-                <CardFooter>
-                  <Button>Select</Button>
-                </CardFooter>
-              </Card>
-            ))}
-          </SimpleGrid>
-          <div className={s.under}>
-            <Stack direction="row" spacing={4} align="end">
-              <Button colorScheme="teal" variant="solid">
-                Отметить
-              </Button>
-              <Button colorScheme="red" variant="outline">
-                Не пришел
-              </Button>
-            </Stack>
-          </div>
-        </div>
+        <CardList cards={cards} />
       </div>
     </>
   );
