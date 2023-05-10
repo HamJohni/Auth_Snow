@@ -127,7 +127,7 @@ const CardList = ({ cards }: CardListProps) => {
               <Text>{card.job}</Text>
             </VStack>
           </Flex>
-          <Text color={colorSelectVisible(card)}>
+          <Text align={"end"} color={colorSelectVisible(card)}>
             {card.markedLate ? "Опоздал" : ""}
             {card.markedAbsent ? "Не пришел" : ""}
             {card.markedPresent ? "Пришел" : ""}
