@@ -15,17 +15,30 @@ export const getUser = createAsyncThunk(
         }
     }
 );
+export const getAllUsers = createAsyncThunk(
+    'user/getAllUsers',
+    async () => {
+        try {
+            const {data} = await axios.get('http://localhost:4080/users');
+            return data;
+        } catch(e) {
+            console.log(e)
+        }
+    }
+)
 
 interface UserState {
     user: IUser;
     isLoading: boolean;
     error: string;
+    users: IUser[]
 }
 
 const initialState: UserState = {
     user: {},
     isLoading: false,
-    error: ''
+    error: '',
+    users: []
 }
 
 export const userSlice = createSlice({
@@ -43,6 +56,9 @@ export const userSlice = createSlice({
         [getUser.fulfilled]: (state, action) => {
             state.status = true;
             state.user = action.payload;
+        },
+        [getAllUsers.fulfilled]: (state, action) => {
+            state.users = action.payload
         }
     }
 })

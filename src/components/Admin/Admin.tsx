@@ -1,6 +1,10 @@
-﻿import { useState } from "react";
+﻿import { useEffect, useState, FC } from "react";
 import { Avatar, Button, Flex, Text, VStack } from "@chakra-ui/react";
 import s from "./Admin.module.scss";
+import { getAllUsers } from "@/store/reducers/user";
+import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
+import { IUser } from "@/models/FormType/FormType";
 
 interface Card {
   id: number;
@@ -8,18 +12,22 @@ interface Card {
   job: string;
   img: string;
   selected: boolean;
-  markedLate: boolean;
-  markedAbsent: boolean;
-  markedPresent: boolean;
+  marked: string;
 }
 
 interface CardListProps {
   cards: Card[];
 }
 
-const CardList = ({ cards }: CardListProps) => {
+const CardList: FC<CardListProps> = ({ cards }) => {
   const [selectAll, setSelectAll] = useState(false);
   const [cardList, setCardList] = useState(cards);
+  const dispatch = useAppDispatch();
+  const { users } = useAppSelector((state) => state.user);
+
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, []);
 
   const handleSelectAll = () => {
     setSelectAll(!selectAll);
@@ -52,9 +60,7 @@ const CardList = ({ cards }: CardListProps) => {
         return {
           ...card,
           selected: false,
-          markedLate: false,
-          markedAbsent: false,
-          markedPresent: true,
+          marked: "Пришли",
         };
       }
       return card;
@@ -69,9 +75,7 @@ const CardList = ({ cards }: CardListProps) => {
         return {
           ...card,
           selected: false,
-          markedLate: true,
-          markedAbsent: false,
-          markedPresent: false,
+          marked: "Опоздали",
         };
       }
       return card;
@@ -86,9 +90,7 @@ const CardList = ({ cards }: CardListProps) => {
         return {
           ...card,
           selected: false,
-          markedLate: false,
-          markedAbsent: true,
-          markedPresent: false,
+          marked: "Не пришли",
         };
       }
       return card;
@@ -97,9 +99,9 @@ const CardList = ({ cards }: CardListProps) => {
   };
 
   const colorSelectVisible = (card: Card) => {
-    if (card.markedAbsent) return "red.500";
-    if (card.markedPresent) return "green.500";
-    if (card.markedLate) return "orange.500";
+    if (card.marked === "Не пришли") return "red.500";
+    if (card.marked === "Пришли") return "green.500";
+    if (card.marked === "Опоздали") return "orange.500";
     return "gray.500";
   };
   return (
@@ -128,9 +130,7 @@ const CardList = ({ cards }: CardListProps) => {
             </VStack>
           </Flex>
           <Text align={"end"} color={colorSelectVisible(card)}>
-            {card.markedLate ? "Опоздал" : ""}
-            {card.markedAbsent ? "Не пришел" : ""}
-            {card.markedPresent ? "Пришел" : ""}
+            {card.marked}
           </Text>
         </Flex>
       ))}
@@ -156,9 +156,7 @@ const cards: Card[] = [
     job: "Frontend Developer",
     img: "https://bit.ly/dan-abramov",
     selected: false,
-    markedLate: false,
-    markedAbsent: false,
-    markedPresent: false,
+    marked: "",
   },
   {
     id: 2,
@@ -166,9 +164,7 @@ const cards: Card[] = [
     job: "Senior Mom Deviloper",
     img: "https://bit.ly/tioluwani-kolawole",
     selected: false,
-    markedLate: false,
-    markedAbsent: false,
-    markedPresent: false,
+    marked: "",
   },
   {
     id: 4,
@@ -176,9 +172,7 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/kent-c-dodds",
     selected: false,
-    markedLate: false,
-    markedAbsent: false,
-    markedPresent: false,
+    marked: "",
   },
   {
     id: 5,
@@ -186,9 +180,7 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/ryan-florence",
     selected: false,
-    markedLate: false,
-    markedAbsent: false,
-    markedPresent: false,
+    marked: "",
   },
   {
     id: 6,
@@ -196,9 +188,7 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/prosper-baba",
     selected: false,
-    markedLate: false,
-    markedAbsent: false,
-    markedPresent: false,
+    marked: "",
   },
   {
     id: 7,
@@ -206,19 +196,7 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/code-beast",
     selected: false,
-    markedLate: false,
-    markedAbsent: false,
-    markedPresent: false,
-  },
-  {
-    id: 8,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/sage-adebayo",
-    selected: false,
-    markedLate: false,
-    markedAbsent: false,
-    markedPresent: false,
+    marked: "",
   },
 ];
 
