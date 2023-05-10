@@ -8,6 +8,9 @@ interface Card {
   job: string;
   img: string;
   selected: boolean;
+  markedLate: boolean;
+  markedAbsent: boolean;
+  markedPresent: boolean;
 }
 
 interface CardListProps {
@@ -44,17 +47,61 @@ const CardList = ({ cards }: CardListProps) => {
 
   const handleMarkAttendance = () => {
     const selectedCards = cardList.filter((card) => card.selected);
-    console.log("Selected cards:", selectedCards);
-  };
-  const handleMarkLate = () => {
-    const selectedCards = cardList.filter((card) => card.selected);
-    console.log("Selected cards:", selectedCards);
-  };
-  const handleMarkDidnotCome = () => {
-    const selectedCards = cardList.filter((card) => card.selected);
-    console.log("Selected cards:", selectedCards);
+    const updatedCardList = cardList.map((card) => {
+      if (selectedCards.includes(card)) {
+        return {
+          ...card,
+          selected: false,
+          markedLate: false,
+          markedAbsent: false,
+          markedPresent: true,
+        };
+      }
+      return card;
+    });
+    setCardList(updatedCardList);
   };
 
+  const handleMarkLate = () => {
+    const selectedCards = cardList.filter((card) => card.selected);
+    const updatedCardList = cardList.map((card) => {
+      if (selectedCards.includes(card)) {
+        return {
+          ...card,
+          selected: false,
+          markedLate: true,
+          markedAbsent: false,
+          markedPresent: false,
+        };
+      }
+      return card;
+    });
+    setCardList(updatedCardList);
+  };
+
+  const handleMarkDidNotCome = () => {
+    const selectedCards = cardList.filter((card) => card.selected);
+    const updatedCardList = cardList.map((card) => {
+      if (selectedCards.includes(card)) {
+        return {
+          ...card,
+          selected: false,
+          markedLate: false,
+          markedAbsent: true,
+          markedPresent: false,
+        };
+      }
+      return card;
+    });
+    setCardList(updatedCardList);
+  };
+
+  const colorSelectVisible = (card: Card) => {
+    if (card.markedAbsent) return "red.500";
+    if (card.markedPresent) return "green.500";
+    if (card.markedLate) return "orange.500";
+    return "gray.500";
+  };
   return (
     <VStack spacing="4" align="stretch">
       <Flex justify="space-between" align="center">
@@ -71,6 +118,7 @@ const CardList = ({ cards }: CardListProps) => {
           transform={`scale(${card.selected ? "1.02" : "1"})`}
           onClick={() => handleCardSelect(card.id)}
           cursor="pointer"
+          justifyContent={"space-between"}
         >
           <Flex gap="4" align="stretch">
             <Avatar />
@@ -79,6 +127,11 @@ const CardList = ({ cards }: CardListProps) => {
               <Text>{card.job}</Text>
             </VStack>
           </Flex>
+          <Text color={colorSelectVisible(card)}>
+            {card.markedLate ? "Опоздал" : ""}
+            {card.markedAbsent ? "Не пришел" : ""}
+            {card.markedPresent ? "Пришел" : ""}
+          </Text>
         </Flex>
       ))}
       <Flex gap="4" justifyContent="center">
@@ -88,7 +141,7 @@ const CardList = ({ cards }: CardListProps) => {
         <Button bg="orange.600" onClick={handleMarkLate}>
           Опоздал
         </Button>
-        <Button bg="red.600" onClick={handleMarkDidnotCome}>
+        <Button bg="red.600" onClick={handleMarkDidNotCome}>
           Не пришел
         </Button>
       </Flex>
@@ -103,6 +156,9 @@ const cards: Card[] = [
     job: "Frontend Developer",
     img: "https://bit.ly/dan-abramov",
     selected: false,
+    markedLate: false,
+    markedAbsent: false,
+    markedPresent: false,
   },
   {
     id: 2,
@@ -110,6 +166,9 @@ const cards: Card[] = [
     job: "Senior Mom Deviloper",
     img: "https://bit.ly/tioluwani-kolawole",
     selected: false,
+    markedLate: false,
+    markedAbsent: false,
+    markedPresent: false,
   },
   {
     id: 4,
@@ -117,6 +176,9 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/kent-c-dodds",
     selected: false,
+    markedLate: false,
+    markedAbsent: false,
+    markedPresent: false,
   },
   {
     id: 5,
@@ -124,6 +186,9 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/ryan-florence",
     selected: false,
+    markedLate: false,
+    markedAbsent: false,
+    markedPresent: false,
   },
   {
     id: 6,
@@ -131,6 +196,9 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/prosper-baba",
     selected: false,
+    markedLate: false,
+    markedAbsent: false,
+    markedPresent: false,
   },
   {
     id: 7,
@@ -138,6 +206,9 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/code-beast",
     selected: false,
+    markedLate: false,
+    markedAbsent: false,
+    markedPresent: false,
   },
   {
     id: 8,
@@ -145,6 +216,9 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/sage-adebayo",
     selected: false,
+    markedLate: false,
+    markedAbsent: false,
+    markedPresent: false,
   },
 ];
 
