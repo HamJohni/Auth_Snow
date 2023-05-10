@@ -139,10 +139,10 @@ const CardList = ({ cards }: CardListProps) => {
           Пришли
         </Button>
         <Button bg="orange.600" onClick={handleMarkLate}>
-          Опоздал
+          Опоздали
         </Button>
         <Button bg="red.600" onClick={handleMarkDidNotCome}>
-          Не пришел
+          Не пришли
         </Button>
       </Flex>
     </VStack>
