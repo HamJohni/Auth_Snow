@@ -46,6 +46,14 @@ const CardList = ({ cards }: CardListProps) => {
     const selectedCards = cardList.filter((card) => card.selected);
     console.log("Selected cards:", selectedCards);
   };
+  const handleMarkLate = () => {
+    const selectedCards = cardList.filter((card) => card.selected);
+    console.log("Selected cards:", selectedCards);
+  };
+  const handleMarkDidnotCome = () => {
+    const selectedCards = cardList.filter((card) => card.selected);
+    console.log("Selected cards:", selectedCards);
+  };
 
   return (
     <VStack spacing="4" align="stretch">
@@ -57,7 +65,7 @@ const CardList = ({ cards }: CardListProps) => {
       {cardList.map((card) => (
         <Flex
           key={card.id}
-          border={card.selected ? "2px solid #6d95fc" : "2px solid gray"}
+          border={card.selected ? "2px solid yellow" : "2px solid gray"}
           borderRadius="lg"
           p="4"
           transform={`scale(${card.selected ? "1.02" : "1"})`}
@@ -77,8 +85,11 @@ const CardList = ({ cards }: CardListProps) => {
         <Button bg="green.600" onClick={handleMarkAttendance}>
           Пришли
         </Button>
-        <Button bg="red.600" onClick={handleMarkAttendance}>
-          Не пришли
+        <Button bg="orange.600" onClick={handleMarkLate}>
+          Опоздал
+        </Button>
+        <Button bg="red.600" onClick={handleMarkDidnotCome}>
+          Не пришел
         </Button>
       </Flex>
     </VStack>
