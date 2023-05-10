@@ -1,4 +1,4 @@
-import p from './profile.module.scss'
+import p from './Profile.module.scss'
 import {Avatar} from "@chakra-ui/react";
 import {useAppDispatch, useAppSelector} from "@/hooks/redux";
 import {useEffect} from "react";
@@ -32,9 +32,6 @@ const Profile = () => {
 
     const time = new Intl.DateTimeFormat('ru',timeOptions)
 
-    date.format(now)
-
-    time.format(now)
 
     return(
         <section className={p.profile}>
@@ -42,8 +39,8 @@ const Profile = () => {
 
                 <div className={p.profile__left}>
                     <Avatar size="2xl" name={"asd"}/>
-                    <p className={p.profile__left_name}>Zhanybek Adilov</p>
-                    <p className={p.profile__left_post}>Frontend developer</p>
+                    <p className={p.profile__left_name}>{user?.name}</p>
+                    <p className={p.profile__left_post}>{user?.post}</p>
                 </div>
 
                 <div className={p.profile__right}>
@@ -62,7 +59,6 @@ const Profile = () => {
                                 </li>
                             ))
                         }
-
                     </ul>
                 </div>
             </div>

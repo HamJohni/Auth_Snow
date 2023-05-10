@@ -1,6 +1,6 @@
 ﻿import { NextPage } from "next";
 import Head from "next/head";
-import Qr from "@/components/Qr/Qr";
+import Main from "@/components/Main/Main";
 
 
 const Home: NextPage = () => {
@@ -11,7 +11,7 @@ const Home: NextPage = () => {
             <meta name="description" content="Created by snowflake" />
         </Head>
 
-        <Qr/>
+        <Main/>
     </>
   );
 };

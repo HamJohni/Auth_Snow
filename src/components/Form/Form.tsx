@@ -1,4 +1,4 @@
-import auth from '../Register/auth.module.scss'
+import auth from '../Register/Auth.module.scss'
 
 import {AiOutlineUserAdd} from "react-icons/ai";
 import {AiOutlineUser} from "react-icons/ai";

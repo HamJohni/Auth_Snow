@@ -13,6 +13,55 @@
           "cause": "Опоздание",
           "time": "20:12",
           "sum": "asdas"
+        },
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        },
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        },
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        },
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        },
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        },
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        },
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
         }
       ]
     },
@@ -130,6 +179,22 @@
           "money": "100"
         }
       ]
+    },
+    {
+      "email": "artur.snow@list.ru",
+      "password": "$2a$10$lO7lDnnYlkYe4xLx4qRRN.cYFcE0I9sNXUaB0l9ERgc1RlkiF/ju2",
+      "name": "Artur",
+      "post": "frontend",
+      "id": "b5c67a02-4840-4700-a316-e1a4881874dc",
+      "fine": []
+    },
+    {
+      "email": "han@list.ru",
+      "password": "$2a$10$PQ7BHlT.8U00js.pXXLIVunRFKVPTFmBjZp8Lr3D/wixN3BtfCzGm",
+      "name": "Khan",
+      "post": "frontend",
+      "id": "1e78f2c8-630e-4e6e-aff2-b8dab6713f92",
+      "fine": []
     }
   ]
 }

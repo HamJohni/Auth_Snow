@@ -6,6 +6,7 @@
   align-items: center;
   background: black;
   position: relative;
+  padding: 0 20px;
 
   &__link{
     position: absolute;
@@ -140,6 +141,58 @@
       background: transparent;
       color: black;
     }
+  }
+}
+
+
+
+@media (max-width: 900px) {
+  .form__right_content{
+    width: 80%;
+  }
+}
+
+@media (max-width: 650px) {
+  .form__right_content{
+    width: 90%;
+  }
+  .form{
+    height: 350px;
+  }
+  .form__left{
+    display: none;
+  }
+
+  .form__right{
+    width: 100%;
+  }
+}
+
+
+@media (max-width: 450px) {
+  .form{
+    height: 300px;
+  }
+}
+
+@media (max-width: 400px) {
+  .form{
+    background: transparent;
+    border: none;
+    box-shadow: none;
+
+    &__right{
+      background: transparent;
+    }
+  }
+  .auth{
+    padding: 0 10px;
+  }
+}
+
+@media (max-width: 350px) {
+  .auth{
+    padding: 0 2px;
   }
 }
 

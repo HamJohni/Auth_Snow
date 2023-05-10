@@ -1,40 +1,41 @@
-import qr from './qr.module.scss'
-import {Avatar} from "@chakra-ui/react";
-import {useAppDispatch, useAppSelector} from "@/hooks/redux";
-import {getUser, userSlice} from "@/store/reducers/user";
-import {useRouter} from "next/router";
-import {useEffect} from "react";
+import qr from './Qr.module.scss'
+
+import React, { useState } from 'react';
+import {QrReader} from 'react-qr-reader';
+import moment from 'moment';
+
+
 
 const Qr = () => {
+    const [scannedTime, setScannedTime] = useState('');
 
-    const router = useRouter()
+    const handleScan = (data) => {
+        if (data) {
+            const scannedTime = moment().format('YYYY-MM-DD HH:mm:ss');
+            setScannedTime(scannedTime);
+        }
+    }
 
-    const dispatch = useAppDispatch()
+    const handleError = (err) => {
+        console.error(err);
+    }
 
-    const id = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
-
-    useEffect(() => {
-        dispatch(getUser(id.id))
-    },[])
-
-    const {user} = useAppSelector(state => state.user)
-
-    return (
+    return(
         <section className={qr.qr}>
-            <div className={qr.qr__content}>
-                <div className={qr.qr__content_top}>
-                    <Avatar size="2xl" name={user?.name}/>
-                    <p className={qr.qr__content_name}>{user?.name}</p>
-                    <p className={qr.qr__content_post}>{user?.post?.toUpperCase()}</p>
-                </div>
+            Салам мир
 
-                <div className={qr.qr__content_bottom}>
-                    <button onClick={() => router.push('/profile') } className={qr.qr__content_bottom_btn}>Профиль</button>
-                    <button className={qr.qr__content_bottom_btn}>Сканировать</button>
-                </div>
-            </div>
+            <QrReader
+                delay={300}
+                onError={handleError}
+                onScan={handleScan}
+                style={{ width: '100%' }}/>
+
+            {scannedTime && (
+                <p>Scanned time: {scannedTime}</p>
+            )}
+
         </section>
     )
-};
+}
 
-export default Qr;
+export default Qr
