@@ -57,7 +57,7 @@ const CardList = ({ cards }: CardListProps) => {
       {cardList.map((card) => (
         <Flex
           key={card.id}
-          border={card.selected ? "2px solid green" : "2px solid gray"}
+          border={card.selected ? "2px solid #6d95fc" : "2px solid gray"}
           borderRadius="lg"
           p="4"
           transform={`scale(${card.selected ? "1.02" : "1"})`}

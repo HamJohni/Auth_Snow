@@ -195,6 +195,57 @@
       "post": "frontend",
       "id": "1e78f2c8-630e-4e6e-aff2-b8dab6713f92",
       "fine": []
+    },
+    {
+      "email": "weekera@gmail.com",
+      "password": "$2a$10$RqZBOOM0U57yiZvFufrGFu6bU8bxFDocjhY9bTweb993ooV15cWN6",
+      "name": "keraemoe",
+      "post": "frontend",
+      "id": "434adda4-3de4-443d-bf3a-e0f4526acb1b",
+      "fine": [
+        {
+          "id": "asdasdaads",
+          "data": "9 мая 2023 г.",
+          "cause": "Опоздал",
+          "time": "20:11",
+          "money": "100"
+        },
+        {
+          "id": "asdasdaaфds",
+          "data": "9 апреля 2023 г.",
+          "cause": "Не пришел",
+          "time": "20:14",
+          "money": "200"
+        },
+        {
+          "id": "asdasgdaads",
+          "data": "9 января 2026 г.",
+          "cause": "Опоздал",
+          "time": "20:14",
+          "money": "100"
+        },
+        {
+          "id": "asdasgdaads",
+          "data": "9 января 2026 г.",
+          "cause": "asa",
+          "time": "20:14",
+          "money": "100"
+        },
+        {
+          "id": "asdasgdaads",
+          "data": "9 января 2026 г.",
+          "cause": "asa",
+          "time": "20:14",
+          "money": "100"
+        },
+        {
+          "id": "asdasgdaads",
+          "data": "9 января 2026 г.",
+          "cause": "asa",
+          "time": "20:14",
+          "money": "100"
+        }
+      ]
     }
   ]
 }
