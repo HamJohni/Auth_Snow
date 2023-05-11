@@ -1,6 +1,8 @@
+
 const Qr = () => {
     return(
-        <section>
+        <section className={}>
+            Салам мир
 
         </section>
     )

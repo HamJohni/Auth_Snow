@@ -1,6 +1,10 @@
-﻿import { useState } from "react";
+﻿import { useEffect, useState, FC } from "react";
 import { Avatar, Button, Flex, Text, VStack } from "@chakra-ui/react";
 import s from "./Admin.module.scss";
+import { getAllUsers } from "@/store/reducers/user";
+import { useDispatch } from "react-redux";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
+import { IUser } from "@/models/FormType/FormType";
 
 interface Card {
   id: number;
@@ -8,15 +12,22 @@ interface Card {
   job: string;
   img: string;
   selected: boolean;
+  marked: string;
 }
 
 interface CardListProps {
   cards: Card[];
 }
 
-const CardList = ({ cards }: CardListProps) => {
+const CardList: FC<CardListProps> = ({ cards }) => {
   const [selectAll, setSelectAll] = useState(false);
   const [cardList, setCardList] = useState(cards);
+  const dispatch = useAppDispatch();
+  const { users } = useAppSelector((state) => state.user);
+
+  useEffect(() => {
+    dispatch(getAllUsers());
+  }, []);
 
   const handleSelectAll = () => {
     setSelectAll(!selectAll);
@@ -44,9 +55,55 @@ const CardList = ({ cards }: CardListProps) => {
 
   const handleMarkAttendance = () => {
     const selectedCards = cardList.filter((card) => card.selected);
-    console.log("Selected cards:", selectedCards);
+    const updatedCardList = cardList.map((card) => {
+      if (selectedCards.includes(card)) {
+        return {
+          ...card,
+          selected: false,
+          marked: "Пришли",
+        };
+      }
+      return card;
+    });
+    setCardList(updatedCardList);
   };
 
+  const handleMarkLate = () => {
+    const selectedCards = cardList.filter((card) => card.selected);
+    const updatedCardList = cardList.map((card) => {
+      if (selectedCards.includes(card)) {
+        return {
+          ...card,
+          selected: false,
+          marked: "Опоздали",
+        };
+      }
+      return card;
+    });
+    setCardList(updatedCardList);
+  };
+
+  const handleMarkDidNotCome = () => {
+    const selectedCards = cardList.filter((card) => card.selected);
+    const updatedCardList = cardList.map((card) => {
+      if (selectedCards.includes(card)) {
+        return {
+          ...card,
+          selected: false,
+          marked: "Не пришли",
+        };
+      }
+      return card;
+    });
+    setCardList(updatedCardList);
+  };
+
+  const colorSelectVisible = (card: Card) => {
+    if (card.marked === "Не пришли") return "red.500";
+    if (card.marked === "Пришли") return "green.500";
+    if (card.marked === "Опоздали") return "orange.500";
+    return "gray.500";
+  };
   return (
     <VStack spacing="4" align="stretch">
       <Flex justify="space-between" align="center">
@@ -57,12 +114,13 @@ const CardList = ({ cards }: CardListProps) => {
       {cardList.map((card) => (
         <Flex
           key={card.id}
-          border={card.selected ? "2px solid green" : "2px solid gray"}
+          border={card.selected ? "2px solid yellow" : "2px solid gray"}
           borderRadius="lg"
           p="4"
           transform={`scale(${card.selected ? "1.02" : "1"})`}
           onClick={() => handleCardSelect(card.id)}
           cursor="pointer"
+          justifyContent={"space-between"}
         >
           <Flex gap="4" align="stretch">
             <Avatar />
@@ -71,13 +129,19 @@ const CardList = ({ cards }: CardListProps) => {
               <Text>{card.job}</Text>
             </VStack>
           </Flex>
+          <Text align={"end"} color={colorSelectVisible(card)}>
+            {card.marked}
+          </Text>
         </Flex>
       ))}
       <Flex gap="4" justifyContent="center">
         <Button bg="green.600" onClick={handleMarkAttendance}>
           Пришли
         </Button>
-        <Button bg="red.600" onClick={handleMarkAttendance}>
+        <Button bg="orange.600" onClick={handleMarkLate}>
+          Опоздали
+        </Button>
+        <Button bg="red.600" onClick={handleMarkDidNotCome}>
           Не пришли
         </Button>
       </Flex>
@@ -92,6 +156,7 @@ const cards: Card[] = [
     job: "Frontend Developer",
     img: "https://bit.ly/dan-abramov",
     selected: false,
+    marked: "",
   },
   {
     id: 2,
@@ -99,6 +164,7 @@ const cards: Card[] = [
     job: "Senior Mom Deviloper",
     img: "https://bit.ly/tioluwani-kolawole",
     selected: false,
+    marked: "",
   },
   {
     id: 4,
@@ -106,6 +172,7 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/kent-c-dodds",
     selected: false,
+    marked: "",
   },
   {
     id: 5,
@@ -113,6 +180,7 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/ryan-florence",
     selected: false,
+    marked: "",
   },
   {
     id: 6,
@@ -120,6 +188,7 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/prosper-baba",
     selected: false,
+    marked: "",
   },
   {
     id: 7,
@@ -127,13 +196,7 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/code-beast",
     selected: false,
-  },
-  {
-    id: 8,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/sage-adebayo",
-    selected: false,
+    marked: "",
   },
 ];
 
