@@ -1,5 +1,5 @@
 import Form from "@/components/Form/Form";
-import auth from "./auth.module.scss";
+import auth from "./Auth.module.scss";
 
 const Register = () => {
   return (

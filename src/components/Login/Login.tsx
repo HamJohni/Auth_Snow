@@ -1,5 +1,5 @@
 import Form from "@/components/Form/Form";
-import auth from '../Register/auth.module.scss'
+import auth from '../Register/Auth.module.scss'
 
 const Login = () => {
     return(

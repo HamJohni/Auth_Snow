@@ -1,4 +1,4 @@
-import auth from '../Register/auth.module.scss'
+import auth from '../Register/Auth.module.scss'
 
 import {AiOutlineUserAdd} from "react-icons/ai";
 import {AiOutlineUser} from "react-icons/ai";
@@ -212,8 +212,8 @@ const Form = () => {
         </form>
 
             <div className={auth.auth__link}>
-                <Link href={'/register'} style={pathname === '/register' ? {border: "3px solid #6d95fc"}: null} className={auth.auth__link_btn}>Register</Link>
-                <Link href={'/login'} style={pathname === '/login' ? {border: "3px solid #6d95fc"}: null} className={auth.auth__link_btn}>Login</Link>
+                <Link href={'/register'} style={pathname === '/register' ? {border: "3px solid #6d95fc"}: undefined} className={auth.auth__link_btn}>Register</Link>
+                <Link href={'/login'} style={pathname === '/login' ? {border: "3px solid #6d95fc"}: undefined} className={auth.auth__link_btn}>Login</Link>
             </div>
         </>
     )
