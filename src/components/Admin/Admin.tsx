@@ -1,7 +1,6 @@
 ﻿import { useEffect, useState, FC } from "react";
 import { Avatar, Button, Flex, Text, VStack } from "@chakra-ui/react";
 import s from "./Admin.module.scss";
-import data from "../../../db.json";
 
 interface Card {
   id: number;
@@ -19,7 +18,6 @@ interface CardListProps {
 }
 
 const CardList: FC<CardListProps> = ({ cards }) => {
-  const [cardUsers, setcardUsers] = useState(data);
   const [selectAll, setSelectAll] = useState(false);
   const [cardList, setCardList] = useState(cards);
 
