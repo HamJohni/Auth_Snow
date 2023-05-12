@@ -1,10 +1,7 @@
 ﻿import { useEffect, useState, FC } from "react";
 import { Avatar, Button, Flex, Text, VStack } from "@chakra-ui/react";
 import s from "./Admin.module.scss";
-import { getAllUsers } from "@/store/reducers/user";
-import { useDispatch } from "react-redux";
-import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { IUser } from "@/models/FormType/FormType";
+import data from "../../../db.json";
 
 interface Card {
   id: number;
@@ -13,6 +10,8 @@ interface Card {
   img: string;
   selected: boolean;
   marked: string;
+  time: string;
+  data: string;
 }
 
 interface CardListProps {
@@ -20,14 +19,9 @@ interface CardListProps {
 }
 
 const CardList: FC<CardListProps> = ({ cards }) => {
+  const [cardUsers, setcardUsers] = useState(data);
   const [selectAll, setSelectAll] = useState(false);
   const [cardList, setCardList] = useState(cards);
-  const dispatch = useAppDispatch();
-  const { users } = useAppSelector((state) => state.user);
-
-  useEffect(() => {
-    dispatch(getAllUsers());
-  }, []);
 
   const handleSelectAll = () => {
     setSelectAll(!selectAll);
@@ -123,15 +117,21 @@ const CardList: FC<CardListProps> = ({ cards }) => {
           justifyContent={"space-between"}
         >
           <Flex gap="4" align="stretch">
-            <Avatar />
+            <Avatar src={card.img} />
             <VStack align="stretch">
               <Text fontWeight="bold">{card.name}</Text>
               <Text>{card.job}</Text>
             </VStack>
           </Flex>
-          <Text align={"end"} color={colorSelectVisible(card)}>
-            {card.marked}
-          </Text>
+          <Flex gap="10">
+            <Flex direction="column" alignItems="end">
+              <Text>12 мая 2023</Text>
+              <Text>17:05</Text>
+            </Flex>
+            <Text align={"end"} color={colorSelectVisible(card)}>
+              {card.marked}
+            </Text>
+          </Flex>
         </Flex>
       ))}
       <Flex gap="4" justifyContent="center">
@@ -156,6 +156,8 @@ const cards: Card[] = [
     job: "Frontend Developer",
     img: "https://bit.ly/dan-abramov",
     selected: false,
+    time: "17:05",
+    data: "12 мая 2023",
     marked: "",
   },
   {
@@ -164,6 +166,8 @@ const cards: Card[] = [
     job: "Senior Mom Deviloper",
     img: "https://bit.ly/tioluwani-kolawole",
     selected: false,
+    time: "17:05",
+    data: "12 мая 2023",
     marked: "",
   },
   {
@@ -172,6 +176,8 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/kent-c-dodds",
     selected: false,
+    time: "17:05",
+    data: "12 мая 2023",
     marked: "",
   },
   {
@@ -180,6 +186,8 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/ryan-florence",
     selected: false,
+    time: "17:05",
+    data: "12 мая 2023",
     marked: "",
   },
   {
@@ -188,6 +196,8 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/prosper-baba",
     selected: false,
+    time: "17:05",
+    data: "12 мая 2023",
     marked: "",
   },
   {
@@ -196,6 +206,8 @@ const cards: Card[] = [
     job: "Python Developer",
     img: "https://bit.ly/code-beast",
     selected: false,
+    time: "17:05",
+    data: "12 мая 2023",
     marked: "",
   },
 ];
