@@ -6,7 +6,7 @@ export const getAllDevelopers = createAsyncThunk(
   "developers/getAllDevelopers",
   async (_, developersApi) => {
     try {
-      const res = await axios.get("http://localhost:4080/developers");
+      const res = await axios.get("http://localhost:4080/users");
 
       return res.data;
 

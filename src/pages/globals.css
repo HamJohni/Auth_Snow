@@ -25,3 +25,68 @@ button:hover {
 button:active {
   transform: scale(0.95);
 }
+
+#html5-qrcode-button-camera-start{
+  background: transparent;
+  border-radius: 5px;
+  color: white;
+  border: 3px solid #6d95fc;
+  padding: 6px 20px;
+  font-weight: 600;
+  font-size: 19px;
+}
+
+#html5-qrcode-button-camera-stop{
+  background: transparent;
+  border-radius: 5px;
+  color: white;
+  border: 3px solid #6d95fc;
+  padding: 6px 20px;
+  font-weight: 600;
+  font-size: 19px;
+}
+
+#reader__scan_region{
+  border: 3px solid #6d95fc;
+  overflow: hidden;
+  border-radius: 10px !important;
+}
+#reader__dashboard_section{
+  margin-top: 10px;
+}
+
+#html5-qrcode-anchor-scan-type-change{
+  display: none !important;
+}
+
+
+
+@media (max-width: 450px) {
+  #reader__scan_region{
+    border: none;
+    overflow: initial;
+    border-radius: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+  }
+
+  video{
+    width: 100% !important;
+    height: 100vh !important;
+  }
+
+  #html5-qrcode-button-camera-start{
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  #html5-qrcode-button-camera-stop{
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

@@ -38,7 +38,6 @@ const initialState: UserState = {
     user: {},
     isLoading: false,
     error: '',
-    users: []
 }
 
 export const userSlice = createSlice({

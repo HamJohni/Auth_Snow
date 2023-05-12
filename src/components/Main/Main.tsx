@@ -14,7 +14,11 @@ const Main = () => {
     const id = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
 
     useEffect(() => {
-        dispatch(getUser(id.id))
+        if(id === null){
+            router.push('/login')
+        }else{
+            dispatch(getUser(id?.id))
+        }
     },[])
 
     const {user} = useAppSelector(state => state.user)
