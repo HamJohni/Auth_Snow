@@ -43,7 +43,7 @@ const Form = () => {
         {mode: "onBlur"}
     )
 
-    const registerUser = (data: dataForm) => {
+    const registerUser = (data: any) => {
 
         let userInfo = {
             ...data,
@@ -85,7 +85,7 @@ const Form = () => {
             })
     }
 
-    const loginUser = (data: dataForm) => {
+    const loginUser = (data: any) => {
 
         let userInfo: infoData = {
             ...data,
@@ -127,12 +127,11 @@ const Form = () => {
             })
     }
 
-    const submit = (data: dataForm) => {
+    const submit = (data: any) => {
         pathname === '/register' ? registerUser(data) : loginUser(data)
     }
 
     return(
-
         <>
             <form className={auth.form} noValidate onSubmit={handleSubmit(submit)}>
 
