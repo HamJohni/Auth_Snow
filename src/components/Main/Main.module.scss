@@ -8,6 +8,22 @@
   background: black !important;
   padding: 0 20px;
 
+
+  &__btn{
+    cursor: pointer;
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    background: transparent;
+    border-radius: 5px;
+    color: white;
+    border: 3px solid #6d95fc;
+    padding: 6px 20px;
+    font-weight: 600;
+    font-size: 19px;
+    z-index: 5;
+  }
+
   &::after {
     content: "";
     background: linear-gradient(

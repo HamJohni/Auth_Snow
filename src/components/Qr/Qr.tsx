@@ -4,7 +4,9 @@ import qr from "./Qr.module.scss"
 import {useRouter} from "next/router";
 import axios from "axios";
 import { v4 as uuidv4 } from 'uuid';
-import {useToast} from "@chakra-ui/react";
+import {Breadcrumb, BreadcrumbItem, useToast} from "@chakra-ui/react";
+import p from "@/components/Profile/Profile.module.scss";
+import Link from "next/link";
 
 
 
@@ -60,7 +62,7 @@ const Qr = () => {
                 .then(() => {
                     setTimeout(() => {
                         router.push('/profile')
-                    },3000)
+                    },5000)
                 })
                 .catch((err) => {
                     toast({
@@ -95,6 +97,18 @@ const Qr = () => {
                             </p>: ''
                     }
                 </div>
+            </div>
+
+            <div className={p.profile__links}>
+                <Breadcrumb fontWeight='medium' fontSize='xl'>
+                    <BreadcrumbItem>
+                        <Link href='/' className={p.profile__links_link}>Home</Link>
+                    </BreadcrumbItem>
+
+                    <BreadcrumbItem>
+                        <p>QR</p>
+                    </BreadcrumbItem>
+                </Breadcrumb>
             </div>
         </section>
     )

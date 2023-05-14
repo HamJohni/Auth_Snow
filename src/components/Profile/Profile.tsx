@@ -1,8 +1,9 @@
 import p from './Profile.module.scss'
-import {Avatar} from "@chakra-ui/react";
 import {useAppDispatch, useAppSelector} from "@/hooks/redux";
 import {useEffect} from "react";
 import {getUser} from "@/store/reducers/user";
+import {Avatar, Breadcrumb, BreadcrumbItem, BreadcrumbLink} from "@chakra-ui/react";
+import Link from "next/link";
 
 const Profile = () => {
     const dispatch = useAppDispatch()
@@ -14,24 +15,6 @@ const Profile = () => {
     },[])
 
     const {user} = useAppSelector(state => state.user)
-
-    const now = new Date();
-
-    const dateOptions: Intl.DateTimeFormatOptions = {
-        day: "numeric",
-        month: "long",
-        year: "numeric"
-    }
-
-    const timeOptions: Intl.DateTimeFormatOptions = {
-        hour: "numeric",
-        minute: "numeric"
-    }
-
-    const date = new Intl.DateTimeFormat('ru',dateOptions)
-
-    const time = new Intl.DateTimeFormat('ru',timeOptions)
-
 
     return(
         <section className={p.profile}>
@@ -61,6 +44,18 @@ const Profile = () => {
                         }
                     </ul>
                 </div>
+            </div>
+
+            <div className={p.profile__links}>
+                <Breadcrumb fontWeight='medium' fontSize='xl'>
+                    <BreadcrumbItem>
+                        <Link href='/' className={p.profile__links_link}>Home</Link>
+                    </BreadcrumbItem>
+
+                    <BreadcrumbItem>
+                        <p>Profile</p>
+                    </BreadcrumbItem>
+                </Breadcrumb>
             </div>
         </section>
     )

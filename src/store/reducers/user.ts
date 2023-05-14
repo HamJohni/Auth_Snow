@@ -1,4 +1,4 @@
-import {createAsyncThunk, createSlice, PayloadAction} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {IUser} from "@/models/FormType/FormType";
 import axios from "axios";
 
@@ -15,27 +15,15 @@ export const getUser = createAsyncThunk(
         }
     }
 );
-export const getAllUsers = createAsyncThunk(
-    'user/getAllUsers',
-    async () => {
-        try {
-            const {data} = await axios.get('http://localhost:4080/users');
-            return data;
-        } catch(e) {
-            console.log(e)
-        }
-    }
-)
 
 interface UserState {
-    user: IUser;
+    user: IUser | null;
     isLoading: boolean;
     error: string;
-    users: IUser[]
 }
 
 const initialState: UserState = {
-    user: {},
+    user: null,
     isLoading: false,
     error: '',
 }
@@ -43,7 +31,11 @@ const initialState: UserState = {
 export const userSlice = createSlice({
     name: 'user',
     initialState,
-    reducers: {},
+    reducers: {
+        logout: (state: any,action) => {
+            state.user = action.payload
+        }
+    },
     extraReducers: {
         [getUser.rejected]: (state, action) => {
             state.error = action.payload;
@@ -55,11 +47,9 @@ export const userSlice = createSlice({
         [getUser.fulfilled]: (state, action) => {
             state.status = true;
             state.user = action.payload;
-        },
-        [getAllUsers.fulfilled]: (state, action) => {
-            state.users = action.payload
         }
     }
 })
 
+export const {logout} = userSlice.actions
 export default userSlice.reducer

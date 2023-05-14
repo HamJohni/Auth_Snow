@@ -11,6 +11,7 @@ import {useRouter} from "next/router";
 import {useForm} from "react-hook-form";
 
 import Link from "next/link";
+import {useEffect} from "react";
 
 interface dataForm {
     email: string,
@@ -26,9 +27,20 @@ interface infoData {
 
 const Form = () => {
 
+    const router = useRouter()
+
+
+    const user = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
+
+    useEffect(() => {
+        if(user !== null){
+            router.push('/')
+        }
+    },[])
+
+
     const toast = useToast()
 
-    const router = useRouter()
 
     const {pathname} = useRouter()
 

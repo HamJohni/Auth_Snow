@@ -254,6 +254,44 @@
           "money": "100"
         }
       ]
+    },
+    {
+      "email": "nazar@list.ru",
+      "password": "$2a$10$Y52T.vpjyCtMIMZL81cI.e.lARIP3nWvzMH317Vgxa/B8dTa4oCJC",
+      "name": "nazar",
+      "post": "frontend",
+      "id": "c1e79e2e-5c10-4d93-bd40-286ead1cbf1a",
+      "fine": []
+    },
+    {
+      "email": "ilias.pacan@lsit.ru",
+      "password": "$2a$10$WfZJy2dgzyVntmSTTwB31ucwV523rbE19z4NPXLdZYW6sBub5TL.y",
+      "name": "ilias aburahmanov",
+      "post": "frontend",
+      "id": "b80d2254-c6b0-4f12-a5ea-8a9650caaefb",
+      "fine": [
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        },
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        },
+        {
+          "id": "sdadsda",
+          "data": "09.05.2023",
+          "cause": "Опоздание",
+          "time": "20:12",
+          "sum": "asdas"
+        }
+      ]
     }
   ],
   "come": [
@@ -268,6 +306,24 @@
       "name": "Zhanybek",
       "time": "17:05",
       "data": "12 мая 2023 г."
+    },
+    {
+      "id": "ab172fd6-cfe5-402f-9a8d-d471d1764b04",
+      "name": "ilias aburahmanov",
+      "time": "16:04",
+      "data": "13 мая 2023 г."
+    },
+    {
+      "id": "dcdd79d4-bcd9-44b7-846c-5caa618c75ae",
+      "name": "ilias aburahmanov",
+      "time": "16:05",
+      "data": "13 мая 2023 г."
+    },
+    {
+      "id": "71061687-5075-425d-a845-52d78003ae35",
+      "name": "ilias aburahmanov",
+      "time": "17:04",
+      "data": "14 мая 2023 г."
     }
   ]
 }
