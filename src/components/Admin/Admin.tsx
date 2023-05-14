@@ -1,10 +1,7 @@
 ﻿import { useEffect, useState, FC } from "react";
 import { Avatar, Button, Flex, Text, VStack } from "@chakra-ui/react";
 import s from "./Admin.module.scss";
-import { getAllUsers } from "@/store/reducers/user";
-import { useDispatch } from "react-redux";
-import { useAppDispatch, useAppSelector } from "@/hooks/redux";
-import { IUser } from "@/models/FormType/FormType";
+import data from "../../../db.json";
 
 interface Card {
   id: number;
@@ -13,21 +10,14 @@ interface Card {
   img: string;
   selected: boolean;
   marked: string;
+  time: string;
+  data: string;
 }
 
-interface CardListProps {
-  cards: Card[];
-}
-
-const CardList: FC<CardListProps> = ({ cards }) => {
+const CardList = () => {
+  const [cards, setcards] = useState(data.come);
   const [selectAll, setSelectAll] = useState(false);
   const [cardList, setCardList] = useState(cards);
-  const dispatch = useAppDispatch();
-  const { users } = useAppSelector((state) => state.user);
-
-  useEffect(() => {
-    dispatch(getAllUsers());
-  }, []);
 
   const handleSelectAll = () => {
     setSelectAll(!selectAll);
@@ -123,15 +113,21 @@ const CardList: FC<CardListProps> = ({ cards }) => {
           justifyContent={"space-between"}
         >
           <Flex gap="4" align="stretch">
-            <Avatar />
+            <Avatar src={card.img} />
             <VStack align="stretch">
               <Text fontWeight="bold">{card.name}</Text>
               <Text>{card.job}</Text>
             </VStack>
           </Flex>
-          <Text align={"end"} color={colorSelectVisible(card)}>
-            {card.marked}
-          </Text>
+          <Flex gap="10">
+            <Flex direction="column" alignItems="end">
+              <Text>{card.data}</Text>
+              <Text>{card.time}</Text>
+            </Flex>
+            <Text align={"end"} color={colorSelectVisible(card)}>
+              {card.marked}
+            </Text>
+          </Flex>
         </Flex>
       ))}
       <Flex gap="4" justifyContent="center">
@@ -149,63 +145,12 @@ const CardList: FC<CardListProps> = ({ cards }) => {
   );
 };
 
-const cards: Card[] = [
-  {
-    id: 1,
-    name: "Kera Yan",
-    job: "Frontend Developer",
-    img: "https://bit.ly/dan-abramov",
-    selected: false,
-    marked: "",
-  },
-  {
-    id: 2,
-    name: "Belek Belekov",
-    job: "Senior Mom Deviloper",
-    img: "https://bit.ly/tioluwani-kolawole",
-    selected: false,
-    marked: "",
-  },
-  {
-    id: 4,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/kent-c-dodds",
-    selected: false,
-    marked: "",
-  },
-  {
-    id: 5,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/ryan-florence",
-    selected: false,
-    marked: "",
-  },
-  {
-    id: 6,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/prosper-baba",
-    selected: false,
-    marked: "",
-  },
-  {
-    id: 7,
-    name: "Chort Chortov",
-    job: "Python Developer",
-    img: "https://bit.ly/code-beast",
-    selected: false,
-    marked: "",
-  },
-];
-
 const Admin = () => {
   return (
     <>
       <div className={s.panel}>
         <div className={s.container}>
-          <CardList cards={cards} />
+          <CardList />
         </div>
       </div>
     </>
