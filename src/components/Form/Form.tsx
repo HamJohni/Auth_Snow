@@ -12,6 +12,7 @@ import {useForm} from "react-hook-form";
 
 import Link from "next/link";
 import {useEffect} from "react";
+import {useAppSelector} from "@/hooks/redux";
 
 interface infoData {
     email: string,
@@ -23,14 +24,7 @@ interface infoData {
 const Form = () => {
     const router = useRouter()
 
-    const user = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
-
-    useEffect(() => {
-        if(user !== null){
-            router.push('/')
-        }
-    },[])
-
+    const {user} = useAppSelector(state => state.user)
 
     const toast = useToast()
 

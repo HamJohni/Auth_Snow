@@ -2,17 +2,21 @@ import './globals.css';
 import './Table.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import { AppProps } from "next/app";
-import {Provider} from "react-redux";
+import {Provider, useDispatch} from "react-redux";
 import store from "@/store/store";
+import Layouts from "@/components/Layout/Layout";
 
 function MyApp({ Component, pageProps }: AppProps) {
 
-  return(
+    return(
       <Provider store={store}>
-          <ChakraProvider>
-            <Component {...pageProps} />
-          </ChakraProvider>
+          <Layouts>
+              <ChakraProvider>
+                <Component {...pageProps} />
+              </ChakraProvider>
+          </Layouts>
       </Provider>
+
       )
 }
 

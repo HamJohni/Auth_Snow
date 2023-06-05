@@ -31,7 +31,6 @@ const initialState: developersState = {
 const developers = createSlice({
   name: "developers",
   initialState,
-  reducers: {},
   extraReducers: {
     [getAllDevelopers.rejected]: (state, action) => {
       state.error = action.payload;

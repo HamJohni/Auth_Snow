@@ -19,6 +19,7 @@ const CardList = () => {
   const [selectAll, setSelectAll] = useState(false);
   const [cardList, setCardList] = useState(cards);
 
+
   const handleSelectAll = () => {
     setSelectAll(!selectAll);
     setCardList(
