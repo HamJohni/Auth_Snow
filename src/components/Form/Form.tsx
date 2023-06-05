@@ -13,11 +13,6 @@ import {useForm} from "react-hook-form";
 import Link from "next/link";
 import {useEffect} from "react";
 
-interface dataForm {
-    email: string,
-    password: string
-}
-
 interface infoData {
     email: string,
     password: string,
@@ -26,9 +21,7 @@ interface infoData {
 }
 
 const Form = () => {
-
     const router = useRouter()
-
 
     const user = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
 
@@ -40,7 +33,6 @@ const Form = () => {
 
 
     const toast = useToast()
-
 
     const {pathname} = useRouter()
 
@@ -59,7 +51,6 @@ const Form = () => {
 
         let userInfo = {
             ...data,
-            password: "1231231",
             id: uuidv4(),
             fine: []
         }
@@ -101,7 +92,6 @@ const Form = () => {
 
         let userInfo: infoData = {
             ...data,
-            password: "1231231",
             id: uuidv4(),
             fine: []
         }
@@ -179,18 +169,6 @@ const Form = () => {
                             </label>
                             :  ''
                     }
-                    <label className={auth.form__right_label}
-                           style={{border:errors.email? "1px solid red" : "1px solid #6d95fc"}}>
-
-                        <input type="email"
-                               {...register('email', {
-                                   required: {
-                                       message: "required field",
-                                       value: true
-                                   }
-                               })}
-                               className={auth.form__right_input} placeholder="Email"/>
-                    </label>
 
                     {
                         pathname === '/register' ?
@@ -212,7 +190,31 @@ const Form = () => {
                             ''
                     }
 
+                    <label className={auth.form__right_label}
+                           style={{border:errors.email? "1px solid red" : "1px solid #6d95fc"}}>
 
+                        <input type="email"
+                               {...register('email', {
+                                   required: {
+                                       message: "required field",
+                                       value: true
+                                   }
+                               })}
+                               className={auth.form__right_input} placeholder="Email"/>
+                    </label>
+
+                    <label className={auth.form__right_label}
+                           style={{border:errors.email? "1px solid red" : "1px solid #6d95fc"}}>
+
+                        <input type="text"
+                               {...register('password', {
+                                   required: {
+                                       message: "required field",
+                                       value: true
+                                   }
+                               })}
+                               className={auth.form__right_input} placeholder="password"/>
+                    </label>
 
                     <div className={auth.form__box}>
                         <button className={auth.form__box_btn} type="submit">Sign up</button>

@@ -1,72 +1,7 @@
 {
   "users": [
     {
-      "email": "joni.pacan@list.ru",
-      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
-      "name": "Zhanybek",
-      "post": "frontend",
-      "id": "c9f2ef51-e825-4fc8-af34-4078851f584b",
-      "fine": [
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        },
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        },
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        },
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        },
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        },
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        },
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        },
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        }
-      ]
-    },
-    {
-      "email": "joni.pacan@list.ru",
+      "email": "joni.paasdcan@list.ru",
       "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
       "name": "iNAs",
       "post": "frontend",
@@ -83,215 +18,11 @@
     },
     {
       "email": "joni.pacan@list.ru",
-      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
-      "name": "Aminea",
+      "password": "$2a$10$Fiib0.mTg6zTXP1evM/I.eRTeWWIVoP1U4Er7eUhZJSptGRRd1QiW",
+      "name": "Zhanybek",
       "post": "frontend",
-      "id": "c9f2ef5ALKSMFAPSASF1-e825-4fc8-af34-4078851f584b",
-      "fine": [
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        }
-      ]
-    },
-    {
-      "email": "joni.pacan@list.ru",
-      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
-      "name": "Erjan",
-      "post": "frontend",
-      "id": "c9faslkfmalksmdamskdaslkdm2ef51-e825-4fc8-af34-4078851f584b",
-      "fine": [
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        }
-      ]
-    },
-    {
-      "email": "joni.pacan@list.ru",
-      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
-      "name": "Ruslan",
-      "post": "frontend",
-      "id": "c9f2easdas,ddasdsaf51-e825-4fc8-af34-4078851f584b",
-      "fine": [
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        }
-      ]
-    },
-    {
-      "email": "umar.pacan@list.ru",
-      "password": "$2a$10$53xMr3XY0K3W.9M19nv8wuUOevAZEU8ckMMouBYq2ghGw79hFrxyq",
-      "name": "Umar",
-      "post": "backend",
-      "id": "a5cda8eb-d012-4343-99d2-f0f9e6e4717c",
-      "fine": [
-        {
-          "id": "asdasdaads",
-          "data": "9 мая 2023 г.",
-          "cause": "Опоздал",
-          "time": "20:11",
-          "money": "100"
-        },
-        {
-          "id": "asdasdaaфds",
-          "data": "9 апреля 2023 г.",
-          "cause": "Не пришел",
-          "time": "20:14",
-          "money": "200"
-        },
-        {
-          "id": "asdasgdaads",
-          "data": "9 января 2026 г.",
-          "cause": "Опоздал",
-          "time": "20:14",
-          "money": "100"
-        },
-        {
-          "id": "asdasgdaads",
-          "data": "9 января 2026 г.",
-          "cause": "asa",
-          "time": "20:14",
-          "money": "100"
-        },
-        {
-          "id": "asdasgdaads",
-          "data": "9 января 2026 г.",
-          "cause": "asa",
-          "time": "20:14",
-          "money": "100"
-        },
-        {
-          "id": "asdasgdaads",
-          "data": "9 января 2026 г.",
-          "cause": "asa",
-          "time": "20:14",
-          "money": "100"
-        }
-      ]
-    },
-    {
-      "email": "artur.snow@list.ru",
-      "password": "$2a$10$lO7lDnnYlkYe4xLx4qRRN.cYFcE0I9sNXUaB0l9ERgc1RlkiF/ju2",
-      "name": "Artur",
-      "post": "frontend",
-      "id": "b5c67a02-4840-4700-a316-e1a4881874dc",
+      "id": "7556fdd1-072d-4912-ba43-cb5a945bbfd4",
       "fine": []
-    },
-    {
-      "email": "han@list.ru",
-      "password": "$2a$10$PQ7BHlT.8U00js.pXXLIVunRFKVPTFmBjZp8Lr3D/wixN3BtfCzGm",
-      "name": "Khan",
-      "post": "frontend",
-      "id": "1e78f2c8-630e-4e6e-aff2-b8dab6713f92",
-      "fine": []
-    },
-    {
-      "email": "kera@list.ru",
-      "password": "$2a$10$pyjWoVMmCqaP7COyjCrwUONZ748NhPbmUWURQxYB/SSvwu8gfxX/C",
-      "name": "Kera",
-      "post": "frontend",
-      "id": "ab13e0d8-c58b-4abe-bcbc-7aaf9451358c",
-      "fine": []
-    },
-    {
-      "email": "weekera@gmail.com",
-      "password": "$2a$10$RqZBOOM0U57yiZvFufrGFu6bU8bxFDocjhY9bTweb993ooV15cWN6",
-      "name": "keraemoe",
-      "post": "frontend",
-      "id": "434adda4-3de4-443d-bf3a-e0f4526acb1b",
-      "fine": [
-        {
-          "id": "asdasdaads",
-          "data": "9 мая 2023 г.",
-          "cause": "Опоздал",
-          "time": "20:11",
-          "money": "100"
-        },
-        {
-          "id": "asdasdaaфds",
-          "data": "9 апреля 2023 г.",
-          "cause": "Не пришел",
-          "time": "20:14",
-          "money": "200"
-        },
-        {
-          "id": "asdasgdaads",
-          "data": "9 января 2026 г.",
-          "cause": "Опоздал",
-          "time": "20:14",
-          "money": "100"
-        },
-        {
-          "id": "asdasgdaads",
-          "data": "9 января 2026 г.",
-          "cause": "asa",
-          "time": "20:14",
-          "money": "100"
-        },
-        {
-          "id": "asdasgdaads",
-          "data": "9 января 2026 г.",
-          "cause": "asa",
-          "time": "20:14",
-          "money": "100"
-        },
-        {
-          "id": "asdasgdaads",
-          "data": "9 января 2026 г.",
-          "cause": "asa",
-          "time": "20:14",
-          "money": "100"
-        }
-      ]
-    },
-    {
-      "email": "nazar@list.ru",
-      "password": "$2a$10$Y52T.vpjyCtMIMZL81cI.e.lARIP3nWvzMH317Vgxa/B8dTa4oCJC",
-      "name": "nazar",
-      "post": "frontend",
-      "id": "c1e79e2e-5c10-4d93-bd40-286ead1cbf1a",
-      "fine": []
-    },
-    {
-      "email": "ilias.pacan@lsit.ru",
-      "password": "$2a$10$WfZJy2dgzyVntmSTTwB31ucwV523rbE19z4NPXLdZYW6sBub5TL.y",
-      "name": "ilias aburahmanov",
-      "post": "frontend",
-      "id": "b80d2254-c6b0-4f12-a5ea-8a9650caaefb",
-      "fine": [
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        },
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        },
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        }
-      ]
     }
   ],
   "come": [
@@ -372,6 +103,12 @@
       "time": "17:05",
       "data": "12 мая 2023",
       "marked": ""
+    },
+    {
+      "id": "33dcf321-8260-4894-a0fa-ef7566c6ce40",
+      "name": "han",
+      "time": "16:09",
+      "data": "16 мая 2023 г."
     }
   ]
 }
