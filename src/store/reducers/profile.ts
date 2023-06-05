@@ -3,9 +3,9 @@ import axios from "axios";
 
 export const getProfile = createAsyncThunk(
     "profile/getProfile",
-    async (filter, profileApi) => {
+    async (id, profileApi) => {
         try {
-            const res = await axios.get(`http://localhost:4080/users`);
+            const res = await axios.get(`http://localhost:4080/come?userID=${id}`);
 
             return res.data;
 
@@ -16,15 +16,12 @@ export const getProfile = createAsyncThunk(
 );
 
 const initialState: any = {
-    profile: {},
+    profile: null,
     status: "",
     error: "",
-    filter: {
-        name: "Zhanybek"
-    }
 };
 
-const profile = createSlice({
+const profileSlice = createSlice({
     name: "profile",
     initialState,
     reducers: {},
@@ -43,4 +40,4 @@ const profile = createSlice({
     },
 });
 
-export default profile.reducer;
+export default profileSlice.reducer;

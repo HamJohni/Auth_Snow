@@ -1,20 +1,13 @@
 import p from './Profile.module.scss'
-import {useAppDispatch, useAppSelector} from "@/hooks/redux";
-import {useEffect} from "react";
-import {getUser} from "@/store/reducers/user";
-import {Avatar, Breadcrumb, BreadcrumbItem, BreadcrumbLink} from "@chakra-ui/react";
+import {useAppSelector} from "@/hooks/redux";
+import {Avatar, Breadcrumb, BreadcrumbItem} from "@chakra-ui/react";
 import Link from "next/link";
 
 const Profile = () => {
-    const dispatch = useAppDispatch()
-
-    const id = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
-
-    useEffect(() => {
-        dispatch(getUser(id.id))
-    },[])
 
     const {user} = useAppSelector(state => state.user)
+
+    const {profile} = useAppSelector(state => state.profile)
 
     return(
         <section className={p.profile}>
@@ -29,7 +22,7 @@ const Profile = () => {
                 <div className={p.profile__right}>
                     <ul className={p.profile__right_list}>
                         {
-                            user?.fine?.map(item => (
+                            profile?.map(item => (
                                 <li key={item?.id} className={p.profile__right_item}>
                                     <div>
                                         <p className={p.profile__right_item_data}>{item?.data}</p>

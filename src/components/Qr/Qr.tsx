@@ -47,9 +47,11 @@ const Qr = () => {
 
             let object = {
                 id: uuidv4(),
-                name: user.name,
+                userId: user.id,
                 time: time.format(now),
-                data: date.format(now)
+                data: date.format(now),
+                cause: "Опоздание",
+                sum: 200
             }
 
             setSuccess('Успешно отсканировано')

@@ -5,16 +5,7 @@
       "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
       "name": "iNAs",
       "post": "frontend",
-      "id": "c9f2ef51-eASJDNAJSD825-4fc8-af34-4078851f584b",
-      "fine": [
-        {
-          "id": "sdadsda",
-          "data": "09.05.2023",
-          "cause": "Опоздание",
-          "time": "20:12",
-          "sum": "asdas"
-        }
-      ]
+      "id": "c9f2ef51-eASJDNAJSD825-4fc8-af34-4078851f584b"
     },
     {
       "email": "joni.pacan@list.ru",
@@ -26,6 +17,21 @@
     }
   ],
   "come": [
-
+    {
+      "id": "878c0377-1c80-4cce-8ae3-ae15d8e5ff9f",
+      "userId": "7556fdd1-072d-4912-ba43-cb5a945bbfd4",
+      "time": "17:06",
+      "data": "5 июня 2023 г.",
+      "cause": "Опоздание",
+      "sum": 200
+    },
+    {
+      "id": "7a9a7b3a-a8a1-4a1b-8737-e98de45c0a0e",
+      "userId": "7556fdd1-072d-4912-ba43-cb5a945bbfd4",
+      "time": "17:07",
+      "data": "5 июня 2023 г.",
+      "cause": "Опоздание",
+      "sum": 200
+    }
   ]
 }
