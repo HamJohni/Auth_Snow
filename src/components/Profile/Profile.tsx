@@ -1,13 +1,24 @@
 import p from './Profile.module.scss'
-import {useAppSelector} from "@/hooks/redux";
+import {useAppDispatch, useAppSelector} from "@/hooks/redux";
 import {Avatar, Breadcrumb, BreadcrumbItem} from "@chakra-ui/react";
 import Link from "next/link";
+import {useEffect} from "react";
+import {getUser} from "@/store/reducers/user";
+import {getProfile} from "@/store/reducers/profile";
 
 const Profile = () => {
+
+    const dispatch = useAppDispatch()
 
     const {user} = useAppSelector(state => state.user)
 
     const {profile} = useAppSelector(state => state.profile)
+
+    const id = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
+
+    useEffect(() => {
+        dispatch(getProfile(id?.id))
+    },[])
 
     return(
         <section className={p.profile}>
@@ -30,7 +41,7 @@ const Profile = () => {
                                     </div>
                                     <div>
                                         <p className={p.profile__right_item_data}>{item?.time}</p>
-                                        <p className={p.profile__right_item_cause}>{item?.money}</p>
+                                        <p className={p.profile__right_item_cause}>{item?.sum === 0 ? '' : item?.sum}</p>
                                     </div>
                                 </li>
                             ))

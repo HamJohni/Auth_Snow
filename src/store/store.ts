@@ -7,7 +7,8 @@ import profile from "@/store/reducers/profile";
 const store = configureStore({
     reducer: {
         user: user,
-        profile: profile
+        profile: profile,
+        developers: developers
     }
 })
 

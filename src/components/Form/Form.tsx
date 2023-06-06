@@ -12,7 +12,7 @@ import {useForm} from "react-hook-form";
 
 import Link from "next/link";
 import {useEffect} from "react";
-import {useAppSelector} from "@/hooks/redux";
+import {useAppDispatch, useAppSelector} from "@/hooks/redux";
 
 interface infoData {
     email: string,
@@ -22,10 +22,8 @@ interface infoData {
 }
 
 const Form = () => {
+    const dispatch = useAppDispatch()
     const router = useRouter()
-
-    const {user} = useAppSelector(state => state.user)
-
     const toast = useToast()
 
     const {pathname} = useRouter()
@@ -46,7 +44,8 @@ const Form = () => {
         let userInfo = {
             ...data,
             id: uuidv4(),
-            fine: []
+            fine: [],
+            photo: {}
         }
 
         axios.post('http://localhost:4080/register', {...userInfo})
@@ -84,13 +83,7 @@ const Form = () => {
 
     const loginUser = (data: any) => {
 
-        let userInfo: infoData = {
-            ...data,
-            id: uuidv4(),
-            fine: []
-        }
-
-        axios.post('http://localhost:4080/login', {...userInfo})
+        axios.post('http://localhost:4080/login', {...data})
             .then((res) => {
 
                 toast({
@@ -110,6 +103,7 @@ const Form = () => {
                 reset()
 
                 router.push('/')
+                console.log(res.data)
             })
             .catch((err) => {
                 toast({

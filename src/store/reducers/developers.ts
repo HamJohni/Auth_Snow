@@ -2,7 +2,7 @@ import { IUser } from "@/models/FormType/FormType";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getAllDevelopers = createAsyncThunk(
+export const getDevelopers = createAsyncThunk(
   "developers/getAllDevelopers",
   async (_, developersApi) => {
     try {
@@ -32,14 +32,14 @@ const developers = createSlice({
   name: "developers",
   initialState,
   extraReducers: {
-    [getAllDevelopers.rejected]: (state, action) => {
+    [getDevelopers.rejected]: (state, action) => {
       state.error = action.payload;
       state.status = "error";
     },
-    [getAllDevelopers.pending]: (state) => {
+    [getDevelopers.pending]: (state) => {
       state.status = "loading";
     },
-    [getAllDevelopers.fulfilled]: (state, action) => {
+    [getDevelopers.fulfilled]: (state, action) => {
       state.status = true;
       state.developers = action.payload;
     },

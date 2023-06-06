@@ -50,8 +50,8 @@ const Qr = () => {
                 userId: user.id,
                 time: time.format(now),
                 data: date.format(now),
-                cause: "Опоздание",
-                sum: 200
+                cause: "",
+                sum: 0
             }
 
             setSuccess('Успешно отсканировано')

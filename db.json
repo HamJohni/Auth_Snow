@@ -5,7 +5,9 @@
       "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
       "name": "iNAs",
       "post": "frontend",
-      "id": "c9f2ef51-eASJDNAJSD825-4fc8-af34-4078851f584b"
+      "id": "c9f2ef51-eASJDNAJSD825-4fc8-af34-4078851f584b",
+      "fine": [],
+      "photo": {}
     },
     {
       "email": "joni.pacan@list.ru",
@@ -13,22 +15,23 @@
       "name": "Zhanybek",
       "post": "frontend",
       "id": "7556fdd1-072d-4912-ba43-cb5a945bbfd4",
-      "fine": []
+      "fine": [],
+      "photo": {}
     }
   ],
   "come": [
     {
-      "id": "878c0377-1c80-4cce-8ae3-ae15d8e5ff9f",
+      "id": "e1727b55-975e-4993-9000-085cd7271840",
       "userId": "7556fdd1-072d-4912-ba43-cb5a945bbfd4",
-      "time": "17:06",
+      "time": "17:15",
       "data": "5 июня 2023 г.",
-      "cause": "Опоздание",
-      "sum": 200
+      "cause": "",
+      "sum": 0
     },
     {
-      "id": "7a9a7b3a-a8a1-4a1b-8737-e98de45c0a0e",
+      "id": "e1727b55-975e-4993-9000-085cd7271840",
       "userId": "7556fdd1-072d-4912-ba43-cb5a945bbfd4",
-      "time": "17:07",
+      "time": "17:15",
       "data": "5 июня 2023 г.",
       "cause": "Опоздание",
       "sum": 200
