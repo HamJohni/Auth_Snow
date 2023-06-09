@@ -1,11 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 
-export const getProfile = createAsyncThunk(
-    "profile/getProfile",
+export const getCome = createAsyncThunk(
+    "come/getCome",
     async (id, profileApi) => {
         try {
-            const res = await axios.get(`http://localhost:4080/come?userId=${id}`);
+            const res = await axios.get(`http://localhost:4080/come`);
 
             return res.data;
         } catch (e) {
@@ -15,28 +15,28 @@ export const getProfile = createAsyncThunk(
 );
 
 const initialState: any = {
-    profile: null,
+    come: null,
     status: "",
     error: "",
 };
 
-const profileSlice = createSlice({
-    name: "profile",
+const comeSLice = createSlice({
+    name: "come",
     initialState,
     reducers: {},
     extraReducers: {
-        [getProfile.rejected]: (state, action) => {
+        [getCome.rejected]: (state, action) => {
             state.error = action.payload;
             state.status = "error";
         },
-        [getProfile.pending]: (state) => {
+        [getCome.pending]: (state) => {
             state.status = "loading";
         },
-        [getProfile.fulfilled]: (state, action) => {
+        [getCome.fulfilled]: (state, action) => {
             state.status = true;
-            state.profile = action.payload;
+            state.come = action.payload;
         }
     },
 });
 
-export default profileSlice.reducer;
+export default comeSLice.reducer;

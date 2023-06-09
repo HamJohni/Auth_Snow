@@ -3,29 +3,35 @@ import {useAppDispatch, useAppSelector} from "@/hooks/redux";
 import {Avatar, Breadcrumb, BreadcrumbItem} from "@chakra-ui/react";
 import Link from "next/link";
 import {useEffect} from "react";
-import {getUser} from "@/store/reducers/user";
 import {getProfile} from "@/store/reducers/profile";
+import {useRouter} from "next/router";
+import {getUser} from "@/store/reducers/user";
 
 const Profile = () => {
 
     const dispatch = useAppDispatch()
 
-    const {user} = useAppSelector(state => state.user)
+    const {query} = useRouter()
 
+    const {user} = useAppSelector(state => state.user)
     const {profile} = useAppSelector(state => state.profile)
 
-    const id = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
+    useEffect(() => {
+        dispatch(getProfile(query?.id))
+        dispatch(getUser(query?.id))
+    },[])
 
     useEffect(() => {
-        dispatch(getProfile(id?.id))
-    },[])
+        dispatch(getProfile(query?.id))
+        dispatch(getUser(query?.id))
+    },[query])
 
     return(
         <section className={p.profile}>
             <div className={p.profile__content}>
 
                 <div className={p.profile__left}>
-                    <Avatar size="2xl" name={"asd"}/>
+                    <Avatar size="2xl" name={user?.name}/>
                     <p className={p.profile__left_name}>{user?.name}</p>
                     <p className={p.profile__left_post}>{user?.post}</p>
                 </div>

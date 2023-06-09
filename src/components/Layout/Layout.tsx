@@ -3,6 +3,7 @@ import {useAppDispatch} from "@/hooks/redux";
 import {getUser} from "@/store/reducers/user";
 import {getProfile} from "@/store/reducers/profile";
 import {getDevelopers} from "@/store/reducers/developers";
+import {getCome} from "@/store/reducers/come";
 
 const Layouts = ({children}: ReactNode) => {
 
@@ -12,8 +13,8 @@ const Layouts = ({children}: ReactNode) => {
 
     useEffect(() => {
         dispatch(getUser(user?.id))
-        dispatch(getProfile(user?.id))
         dispatch(getDevelopers())
+        dispatch(getCome())
     },[])
 
     useEffect(() => {

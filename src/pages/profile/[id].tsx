@@ -1,6 +1,7 @@
 import Profile from "@/components/Profile/Profile";
 
-const Index = () => {
+export default function () {
+
     return(
         <>
             <Profile/>
@@ -8,4 +9,3 @@ const Index = () => {
     )
 }
 
-export default Index

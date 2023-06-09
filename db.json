@@ -1,40 +1,122 @@
 {
   "users": [
     {
-      "email": "joni.paasdcan@list.ru",
+      "email": "belek@list.ru",
       "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
-      "name": "iNAs",
+      "name": "Belek",
       "post": "frontend",
-      "id": "c9f2ef51-eASJDNAJSD825-4fc8-af34-4078851f584b",
+      "id": 2,
+      "fine": [],
+      "photo": {}
+    },
+    {
+      "email": "baitur@list.ru",
+      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
+      "name": "Baitur",
+      "post": "frontend",
+      "id": 3,
+      "fine": [],
+      "photo": {}
+    },
+    {
+      "email": "akulbek@list.ru",
+      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
+      "name": "Akulbek",
+      "post": "frontend",
+      "id": 4,
+      "fine": [],
+      "photo": {}
+    },
+    {
+      "email": "artur@list.ru",
+      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
+      "name": "Artur",
+      "post": "frontend",
+      "id": 5,
+      "fine": [],
+      "photo": {}
+    },
+    {
+      "email": "kera@list.ru",
+      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
+      "name": "Kera",
+      "post": "frontend",
+      "id": 6,
+      "fine": [],
+      "photo": {}
+    },
+    {
+      "email": "glent@list.ru",
+      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
+      "name": "Glent",
+      "post": "backend",
+      "id": 8,
       "fine": [],
       "photo": {}
     },
     {
       "email": "joni.pacan@list.ru",
-      "password": "$2a$10$Fiib0.mTg6zTXP1evM/I.eRTeWWIVoP1U4Er7eUhZJSptGRRd1QiW",
+      "password": "$2a$10$Gu1LwcatJ9HyJbMZr4KbN.jYwnDntrxHKmFuO4bwFVxqNoVeajpnq",
       "name": "Zhanybek",
       "post": "frontend",
-      "id": "7556fdd1-072d-4912-ba43-cb5a945bbfd4",
       "fine": [],
-      "photo": {}
+      "photo": {},
+      "id": 9
+    },
+    {
+      "email": "ilgiz.pacan@list.ru",
+      "password": "$2a$10$XUnDxA4BzmZXCICmKHZzp.N2e2yu.0uAmGcAMHxg9PRhL5IH6tl5K",
+      "name": "Ilgiz",
+      "post": "frontend",
+      "fine": [],
+      "photo": {},
+      "id": 10
     }
   ],
   "come": [
     {
-      "id": "e1727b55-975e-4993-9000-085cd7271840",
-      "userId": "7556fdd1-072d-4912-ba43-cb5a945bbfd4",
-      "time": "17:15",
-      "data": "5 июня 2023 г.",
+      "id": "090bf521-97a3-4d83-b94b-2a8f3cac0557",
+      "userId": 9,
+      "name": "Zhanybek",
+      "post": "frontend",
+      "photo": {},
+      "time": "17:47",
+      "data": "6 июня 2023 г.",
       "cause": "",
       "sum": 0
     },
     {
-      "id": "e1727b55-975e-4993-9000-085cd7271840",
-      "userId": "7556fdd1-072d-4912-ba43-cb5a945bbfd4",
-      "time": "17:15",
-      "data": "5 июня 2023 г.",
-      "cause": "Опоздание",
-      "sum": 200
+      "id": "090bf521-297a3-4d83-b94b-2a8f3cac0557",
+      "userId": 9,
+      "name": "Altunai",
+      "post": "frontend",
+      "photo": {},
+      "time": "17:47",
+      "data": "6 июня 2023 г.",
+      "cause": "",
+      "sum": 0
+    },
+    {
+      "id": "090bf521-97a3-4d835-b94b-2a8f3cac0557",
+      "userId": 9,
+      "name": "Mirbek",
+      "post": "frontend",
+      "photo": {},
+      "time": "17:47",
+      "data": "6 июня 2023 г.",
+      "cause": "",
+      "sum": 0
+    },
+    {
+      "id": "090bf521-97a3-4d831-b94b-2a8f3cac0557",
+      "userId": 9,
+      "name": "Love",
+      "post": "frontend",
+      "photo": {},
+      "time": "17:47",
+      "data": "6 июня 2023 г.",
+      "cause": "",
+      "sum": 0
     }
   ]
 }

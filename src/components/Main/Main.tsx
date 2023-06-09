@@ -37,10 +37,17 @@ const Main = () => {
                     <p className={main.qr__content_post}>{user?.post?.toUpperCase()}</p>
                 </div>
 
-                <div className={main.qr__content_bottom}>
-                    <button onClick={() => router.push('/profile') } className={main.qr__content_bottom_btn}>Профиль</button>
-                    <button onClick={() => router.push('/qr') } className={main.qr__content_bottom_btn}>Сканировать</button>
-                </div>
+                {
+                    user?.name === "Ilgiz" || user?.name === "Artur" ?
+                        <div className={main.qr__content_bottom}>
+                            <button onClick={() => router.push('/developers')} className={main.qr__content_bottom_btn}>Разработчики</button>
+                            <button onClick={() => router.push('/come')} className={main.qr__content_bottom_btn}>Приходы</button>
+                        </div> :
+                        <div className={main.qr__content_bottom}>
+                            <button onClick={() => router.push(`/profile/${user?.id}`) } className={main.qr__content_bottom_btn}>Профиль</button>
+                            <button onClick={() => router.push('/qr') } className={main.qr__content_bottom_btn}>Сканировать</button>
+                        </div>
+                }
             </div>
 
             <button className={main.qr__btn} onClick={exit}>

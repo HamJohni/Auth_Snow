@@ -22,7 +22,6 @@ interface infoData {
 }
 
 const Form = () => {
-    const dispatch = useAppDispatch()
     const router = useRouter()
     const toast = useToast()
 
@@ -43,7 +42,6 @@ const Form = () => {
 
         let userInfo = {
             ...data,
-            id: uuidv4(),
             fine: [],
             photo: {}
         }

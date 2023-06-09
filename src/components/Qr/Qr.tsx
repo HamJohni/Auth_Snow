@@ -48,6 +48,9 @@ const Qr = () => {
             let object = {
                 id: uuidv4(),
                 userId: user.id,
+                name: user.name,
+                post: user.post,
+                photo: user.photo,
                 time: time.format(now),
                 data: date.format(now),
                 cause: "",
