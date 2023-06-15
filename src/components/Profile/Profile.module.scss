@@ -7,6 +7,38 @@
   width: 100%;
   padding: 0 20px;
 
+  &__body{
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+
+  &__fine{
+    display: flex;
+    justify-content: space-between;
+
+    &_input{
+      border: 1px solid #555555;
+      border-radius: 5px;
+      outline: none;
+      padding: 5px 10px;
+      width: 70%;
+      color: black;
+    }
+
+    &_select{
+      color: black;
+      padding: 0 10px;
+      width: 70%;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+
+    &_option{
+      color: #444444;
+    }
+  }
+
   &__footer{
     position: fixed;
     z-index: 5;

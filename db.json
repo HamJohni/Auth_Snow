@@ -1,60 +1,6 @@
 {
   "users": [
     {
-      "email": "belek@list.ru",
-      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
-      "name": "Belek",
-      "post": "frontend",
-      "id": 2,
-      "fine": [],
-      "photo": {}
-    },
-    {
-      "email": "baitur@list.ru",
-      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
-      "name": "Baitur",
-      "post": "frontend",
-      "id": 3,
-      "fine": [],
-      "photo": {}
-    },
-    {
-      "email": "akulbek@list.ru",
-      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
-      "name": "Akulbek",
-      "post": "frontend",
-      "id": 4,
-      "fine": [],
-      "photo": {}
-    },
-    {
-      "email": "artur@list.ru",
-      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
-      "name": "Artur",
-      "post": "frontend",
-      "id": 5,
-      "fine": [],
-      "photo": {}
-    },
-    {
-      "email": "kera@list.ru",
-      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
-      "name": "Kera",
-      "post": "frontend",
-      "id": 6,
-      "fine": [],
-      "photo": {}
-    },
-    {
-      "email": "glent@list.ru",
-      "password": "$2a$10$lrgrI.swey1LF67JQOpJq.fEAY3r3pzPsKSvWbNCT3pCrSBfvVlcq",
-      "name": "Glent",
-      "post": "backend",
-      "id": 8,
-      "fine": [],
-      "photo": {}
-    },
-    {
       "email": "joni.pacan@list.ru",
       "password": "$2a$10$Gu1LwcatJ9HyJbMZr4KbN.jYwnDntrxHKmFuO4bwFVxqNoVeajpnq",
       "name": "Zhanybek",
@@ -71,6 +17,24 @@
       "fine": [],
       "photo": {},
       "id": 10
+    },
+    {
+      "email": "belek.pacan@list.ru",
+      "password": "$2a$10$.phhmH/zVJHWQbhqheaa3O7vGCxNnYRfRU67yizTZtLc76IJTPKTq",
+      "name": "Belek",
+      "post": "frontend",
+      "fine": [],
+      "photo": {},
+      "id": 11
+    },
+    {
+      "email": "baitur.pacan@list.ru",
+      "password": "$2a$10$XiRXNX.LKiwwN8HkprqZjO/ZHI51SyprGIa.EqxY3E1z8e9gssCp6",
+      "name": "Baitur",
+      "post": "frontend",
+      "fine": [],
+      "photo": {},
+      "id": 12
     }
   ],
   "come": [
@@ -82,41 +46,52 @@
       "photo": {},
       "time": "17:47",
       "data": "6 июня 2023 г.",
-      "cause": "",
-      "sum": 0
+      "cause": "Опоздал",
+      "sum": "200"
     },
     {
-      "id": "090bf521-297a3-4d83-b94b-2a8f3cac0557",
-      "userId": 9,
-      "name": "Altunai",
+      "id": "b45bb0aa-11bb-44bb-b546-cb96a965243a",
+      "userId": 11,
+      "name": "Belek",
       "post": "frontend",
       "photo": {},
-      "time": "17:47",
-      "data": "6 июня 2023 г.",
-      "cause": "",
-      "sum": 0
+      "time": "17:43",
+      "data": "9 июня 2023 г.",
+      "cause": "Опоздал",
+      "sum": "200"
     },
     {
-      "id": "090bf521-97a3-4d835-b94b-2a8f3cac0557",
-      "userId": 9,
-      "name": "Mirbek",
+      "id": "c1dedc77-32da-46e3-b79c-bcd39a232baf",
+      "userId": 12,
+      "name": "Baitur",
       "post": "frontend",
       "photo": {},
-      "time": "17:47",
-      "data": "6 июня 2023 г.",
-      "cause": "",
-      "sum": 0
+      "time": "17:44",
+      "data": "9 июня 2023 г.",
+      "cause": "Опоздал",
+      "sum": "200"
     },
     {
-      "id": "090bf521-97a3-4d831-b94b-2a8f3cac0557",
-      "userId": 9,
-      "name": "Love",
+      "id": "98d83a20-b47b-4baf-be2f-6b7c88f84b40",
+      "userId": 12,
+      "name": "Baitur",
       "post": "frontend",
       "photo": {},
-      "time": "17:47",
-      "data": "6 июня 2023 г.",
-      "cause": "",
-      "sum": 0
+      "time": "17:56",
+      "data": "9 июня 2023 г.",
+      "cause": "Не принес обед",
+      "sum": "20"
+    },
+    {
+      "id": "8398a3e1-fb21-47ed-b00c-83d08fe73662",
+      "userId": 11,
+      "name": "Belek",
+      "post": "frontend",
+      "photo": {},
+      "time": "17:56",
+      "data": "9 июня 2023 г.",
+      "cause": "Опоздал",
+      "sum": "200"
     }
   ]
 }

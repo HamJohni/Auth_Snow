@@ -66,8 +66,8 @@ const Qr = () => {
             axios.post('http://localhost:4080/come', {...object} )
                 .then(() => {
                     setTimeout(() => {
-                        router.push('/profile')
-                    },5000)
+                        router.push('/')
+                    },4000)
                 })
                 .catch((err) => {
                     toast({
