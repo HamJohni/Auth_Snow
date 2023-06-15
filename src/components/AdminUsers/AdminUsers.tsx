@@ -17,7 +17,7 @@ const AdminUsers = () => {
                   developers?.map(item => (
                       <li className={s.list__item} onClick={() =>router.push(`/profile/${item.id}`) }>
                           <div className={s.list__item_left}>
-                              <Avatar size="lg" name={item?.name} src={item?.photo}/>
+                              <Avatar size="lg" name={item?.name}/>
 
                               <div className={s.list__item_left_box}>
                                   <p className={s.list__item_left_name}>{item?.name}</p>
