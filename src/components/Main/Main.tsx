@@ -22,9 +22,7 @@ const Main = () => {
   const dispatch = useAppDispatch();
 
   const [user, setUser] = useState({});
-  {
     /* // const {user} = useAppSelector(state => state.user) */
-  }
   useEffect(() => {
     const user =
       typeof window !== "undefined"
