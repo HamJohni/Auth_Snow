@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-
+//не узалять нужен
 export const getProfile = createAsyncThunk(
     "profile/getProfile",
     async (id, profileApi) => {
