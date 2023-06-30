@@ -9,7 +9,9 @@ const Layouts = ({children}: ReactNode) => {
 
     const dispatch = useAppDispatch()
 
-    const user = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('user')) : null;
+    const user = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('userInfo')) : null;
+    console.log(user);
+    
 
     useEffect(() => {
         dispatch(getUser(user?.id))

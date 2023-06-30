@@ -1,221 +1,309 @@
-import auth from '../Register/Auth.module.scss'
+import auth from "../Register/Auth.module.scss";
 
-import {AiOutlineUserAdd} from "react-icons/ai";
-import {AiOutlineUser} from "react-icons/ai";
+import { AiOutlineUserAdd } from "react-icons/ai";
+import { AiOutlineUser } from "react-icons/ai";
 
 import axios from "axios";
-import {useToast} from "@chakra-ui/react";
+import { useToast } from "@chakra-ui/react";
 
-import { v4 as uuidv4 } from 'uuid';
-import {useRouter} from "next/router";
-import {useForm} from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
+import { useRouter } from "next/router";
+import { useForm } from "react-hook-form";
 
 import Link from "next/link";
-import {useEffect} from "react";
-import {useAppDispatch, useAppSelector} from "@/hooks/redux";
+import { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "@/hooks/redux";
 
 interface infoData {
-    email: string,
-    password: string,
-    id: string,
-    fine: any
+  email: string;
+  password: string;
+  id: string;
+  fine: any;
 }
 
 const Form = () => {
-    const router = useRouter()
-    const toast = useToast()
+  const router = useRouter();
+  const toast = useToast();
 
-    const {pathname} = useRouter()
+  const { pathname } = useRouter();
 
-    const {
-        register,
-        reset,
-        handleSubmit,
-        formState: {
-            errors
-        }
-    } = useForm(
-        {mode: "onBlur"}
-    )
+  const {
+    register,
+    getValues,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({ mode: "onBlur" });
 
-    const registerUser = (data: any) => {
+  const registerUser = (data: any) => {
+    console.log(data);
 
-        let userInfo = {
-            ...data,
-            fine: [],
-            photo: {}
-        }
+    axios
+      .post("https://akan2002.pythonanywhere.com/api/auth/register/", {
+        ...data, 
+      })
+      .then((res) => {
+        toast({
+          title: "Account created",
+          description: "We've created your account for you.",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+          position: "top-left",
+        });
 
-        axios.post('http://localhost:4080/register', {...userInfo})
-            .then((res) => {
+        localStorage.setItem(
+          "userInfo",
+          JSON.stringify(res.data)
+        );
 
-                toast({
-                    title: 'Account created',
-                    description: "We've created your account for you.",
-                    status: 'success',
-                    duration: 5000,
-                    isClosable: true,
-                    position: 'top-left',
-                })
+        reset();
 
-                localStorage.setItem('user', JSON.stringify({
-                    token: res.data.accessToken,
-                    ...res.data.user
-                }))
+        router.push("/login");
+      })
+      .catch((err) => {
+        toast({
+          title: "Something went to bad",
+          description: err.message,
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top-left",
+        });
+      });
+  };
 
-                reset()
+  const loginUser = (data: any) => {
+    axios
+      .post("https://akan2002.pythonanywhere.com/api/auth/login/", { ...data })
+      .then((res) => {
+        toast({
+          title: "Account sign in",
+          description: "Success",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+          position: "top-left",
+        });
 
-                router.push('/')
-            })
-            .catch((err) => {
-                toast({
-                    title: "Something went to bad",
-                    description: err.message,
-                    status: 'error',
-                    duration: 5000,
-                    isClosable: true,
-                    position: 'top-left',
-                })
-            })
-    }
+        localStorage.setItem(
+          "token",
+          JSON.stringify(res.data)
+        );
 
-    const loginUser = (data: any) => {
+        reset();
 
-        axios.post('http://localhost:4080/login', {...data})
-            .then((res) => {
+        router.push("/");
+        console.log(res.data);
+      })
+      .catch((err) => {
+        toast({
+          title: "Something went to bad",
+          description: err.message,
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+          position: "top-left",
+        });
+      });
+  };
 
-                toast({
-                    title: 'Account sign in',
-                    description: "Success",
-                    status: 'success',
-                    duration: 5000,
-                    isClosable: true,
-                    position: 'top-left',
-                })
+  const submit = (data: any) => {
+    // data = {...data, position: Number(data.position)}
+    data = {...data, position: null}
+    pathname === "/register" ? registerUser(data) : loginUser(data);
+  };
 
-                localStorage.setItem('user', JSON.stringify({
-                    token: res.data.accessToken,
-                    ...res.data.user
-                }))
+  return (
+    <>
+      <form className={auth.form} noValidate onSubmit={handleSubmit(submit)}>
+        <div className={auth.form__left}>
+          <span className={auth.form__left_circle}>
+            {pathname === "/register" ? (
+              <AiOutlineUserAdd className={auth.form__left_user} />
+            ) : (
+              <AiOutlineUser className={auth.form__left_user} />
+            )}
+          </span>
+          <p className={auth.form__left_subtitle}>
+            {pathname === "/register" ? "Sign up" : "Sign in"}
+          </p>
+        </div>
 
-                reset()
+        <div className={auth.form__right}>
+          <div className={auth.form__right_content}>
+            <label
+              className={auth.form__right_label}
+              style={{
+                border: errors.username ? "1px solid red" : "1px solid #6d95fc",
+              }}
+            >
+              <input
+                type="text"
+                {...register("username", {
+                  required: {
+                    message: "required field",
+                    value: true,
+                  },
+                })}
+                className={auth.form__right_input}
+                placeholder="Username"
+              />
+            </label>
 
-                router.push('/')
-                console.log(res.data)
-            })
-            .catch((err) => {
-                toast({
-                    title: "Something went to bad",
-                    description: err.message,
-                    status: 'error',
-                    duration: 5000,
-                    isClosable: true,
-                    position: 'top-left',
-                })
-            })
-    }
+            {pathname === "/register" ? (
+              <label
+                className={auth.form__right_label}
+                style={{
+                  border: errors.first_name
+                    ? "1px solid red"
+                    : "1px solid #6d95fc",
+                }}
+              >
+                <input
+                  type="text"
+                  {...register("first_name", {
+                    required: {
+                      message: "required field",
+                      value: true,
+                    },
+                  })}
+                  className={auth.form__right_input}
+                  placeholder="First name"
+                />
+              </label>
+            ) : (
+              ""
+            )}
 
-    const submit = (data: any) => {
-        pathname === '/register' ? registerUser(data) : loginUser(data)
-    }
+            {pathname === "/register" ? (
+              <label
+                className={auth.form__right_label}
+                style={{
+                  border: errors.last_name
+                    ? "1px solid red"
+                    : "1px solid #6d95fc",
+                }}
+              >
+                <input
+                  type="text"
+                  {...register("last_name", {
+                    required: {
+                      message: "required field",
+                      value: true,
+                    },
+                  })}
+                  className={auth.form__right_input}
+                  placeholder="Last name"
+                />
+              </label>
+            ) : (
+              ""
+            )}
 
-    return(
-        <>
-            <form className={auth.form} noValidate onSubmit={handleSubmit(submit)}>
+            {pathname === "/register" ? (
+              <label className={auth.form__right_label}>
+                <select
+                  {...register("position", {
+                    required: {
+                      message: "required field",
+                      value: true,
+                    },
+                  })}
+                  className={auth.form__right_input}
+                >
+                  <option value="1" className={auth.form__right_option}>
+                    Frontend
+                  </option>
+                  <option value="2" className={auth.form__right_option}>
+                    Backend
+                  </option>
+                  <option value="3" className={auth.form__right_option}>
+                    UI/UX
+                  </option>
+                </select>
+              </label>
+            ) : (
+              ""
+            )}
 
-            <div className={auth.form__left}>
-                <span className={auth.form__left_circle}>
-                    {
-                        pathname === '/register'? <AiOutlineUserAdd className={auth.form__left_user}/>
-                            :
-                            <AiOutlineUser className={auth.form__left_user}/>
-                    }
-                </span>
-                <p className={auth.form__left_subtitle}>
-                    {
-                        pathname === '/register' ? "Sign up" : "Sign in"
-                    }
-                </p>
+            <label
+              className={auth.form__right_label}
+              style={{
+                border: errors.password ? "1px solid red" : "1px solid #6d95fc",
+              }}
+            >
+              <input
+                type="text"
+                {...register("password", {
+                  required: {
+                    message: "required field",
+                    value: true,
+                  },
+                })}
+                className={auth.form__right_input}
+                placeholder="Password"
+              />
+            </label>
+
+            {pathname === "/register" ? (
+              <label className={auth.form__right_label} style={{
+                border: errors.confirm ? "1px solid red" : "1px solid #6d95fc",
+              }}>
+                <input
+                  type="password"
+                  className={auth.form__right_input}
+                  placeholder="confirm"
+                  {...register("password_confirm", {
+                    required: {
+                      message: "Confirm your password",
+                      value: true,
+                    },
+                    validate: (v) => {
+                      if (getValues("password") !== v) {
+                        return "Is not a same";
+                      }
+                    },
+                  })}
+                />
+              </label>
+            ) : (
+              ""
+            )}
+
+            <div className={auth.form__box}>
+              <button className={auth.form__box_btn} type="submit">
+                Sign up
+              </button>
             </div>
+          </div>
+        </div>
+      </form>
 
-            <div className={auth.form__right}>
-                <div className={auth.form__right_content}>
-                    {
-                        pathname === '/register' ?
-                            <label className={auth.form__right_label}
-                                   style={{border:errors.name? "1px solid red" : "1px solid #6d95fc"}}>
-                                <input type="text"
-                                       {...register('name', {
-                                           required: {
-                                               message: "required field",
-                                               value: true
-                                           }
-                                       })}
-                                       className={auth.form__right_input} placeholder="Name"/>
-                            </label>
-                            :  ''
-                    }
+      <div className={auth.auth__link}>
+        <Link
+          href={"/register"}
+          style={
+            pathname === "/register"
+              ? { border: "3px solid #6d95fc" }
+              : undefined
+          }
+          className={auth.auth__link_btn}
+        >
+          Register
+        </Link>
+        <Link
+          href={"/login"}
+          style={
+            pathname === "/login" ? { border: "3px solid #6d95fc" } : undefined
+          }
+          className={auth.auth__link_btn}
+        >
+          Login
+        </Link>
+      </div>
+    </>
+  );
+};
 
-                    {
-                        pathname === '/register' ?
-                            <label className={auth.form__right_label}>
-                                <select
-                                    {...register('post', {
-                                        required: {
-                                            message: "required field",
-                                            value: true
-                                        }
-                                    })}
-                                    className={auth.form__right_input} >
-                                    <option value="frontend" className={auth.form__right_option}>Frontend</option>
-                                    <option value="backend" className={auth.form__right_option}>Backend</option>
-                                    <option value="ui/ux" className={auth.form__right_option}>UI/UX</option>
-                                </select>
-                            </label>
-                            :
-                            ''
-                    }
-
-                    <label className={auth.form__right_label}
-                           style={{border:errors.email? "1px solid red" : "1px solid #6d95fc"}}>
-
-                        <input type="email"
-                               {...register('email', {
-                                   required: {
-                                       message: "required field",
-                                       value: true
-                                   }
-                               })}
-                               className={auth.form__right_input} placeholder="Email"/>
-                    </label>
-
-                    <label className={auth.form__right_label}
-                           style={{border:errors.email? "1px solid red" : "1px solid #6d95fc"}}>
-
-                        <input type="text"
-                               {...register('password', {
-                                   required: {
-                                       message: "required field",
-                                       value: true
-                                   }
-                               })}
-                               className={auth.form__right_input} placeholder="password"/>
-                    </label>
-
-                    <div className={auth.form__box}>
-                        <button className={auth.form__box_btn} type="submit">Sign up</button>
-                    </div>
-                </div>
-            </div>
-
-        </form>
-
-            <div className={auth.auth__link}>
-                <Link href={'/register'} style={pathname === '/register' ? {border: "3px solid #6d95fc"}: undefined} className={auth.auth__link_btn}>Register</Link>
-                <Link href={'/login'} style={pathname === '/login' ? {border: "3px solid #6d95fc"}: undefined} className={auth.auth__link_btn}>Login</Link>
-            </div>
-        </>
-    )
-}
-
-export default Form
+export default Form;
