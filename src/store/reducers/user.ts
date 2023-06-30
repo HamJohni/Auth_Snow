@@ -6,7 +6,7 @@ export const getUser = createAsyncThunk(
     "user/getUser",
     async (id, userApi) => {
         try {
-            const res = await axios.get(`http://localhost:4080/users?id=${id}`);
+            const res = await axios.get(`http://localhost:/users?id=${id}`);
 
             return res.data[0];
 

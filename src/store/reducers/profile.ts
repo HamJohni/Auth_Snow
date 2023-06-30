@@ -5,8 +5,10 @@ export const getProfile = createAsyncThunk(
     "profile/getProfile",
     async (id, profileApi) => {
         try {
-            const res = await axios.get(`http://localhost:4080/come?userId=${id}`);
-
+            const token = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('token')) : null;
+            const res = await axios.get(`https://akan2002.pythonanywhere.com/api/users/${id}/`, {headers: {
+                "Authorization": `Bearer ${token.access}`
+            }});
             return res.data;
         } catch (e) {
             return profileApi.rejectWithValue("Не удалось получить разработчиков");

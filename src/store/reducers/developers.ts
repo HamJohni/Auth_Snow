@@ -6,10 +6,16 @@ export const getDevelopers = createAsyncThunk(
   "developers/getAllDevelopers",
   async (_, developersApi) => {
     try {
-      const res = await axios.get("http://localhost:4080/users");
-
+      const token = typeof window !== "undefined" ? JSON.parse(localStorage.getItem("token")) : null;
+      const res = await axios.get(
+        `https://akan2002.pythonanywhere.com/api/users/`,
+        {
+          headers: {
+            Authorization: `Bearer ${token.access}`,
+          },
+        }
+      );
       return res.data;
-
     } catch (e) {
       return developersApi.rejectWithValue("Не удалось получить разработчиков");
     }

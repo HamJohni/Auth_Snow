@@ -12,8 +12,9 @@ const Main = () => {
 
     const dispatch = useAppDispatch()
 
-    const {user} = useAppSelector(state => state.user)
-
+    // const {user} = useAppSelector(state => state.user)
+    const user = typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('userInfo')) : null;
+    
     const exit = () => {
         dispatch(logout(null))
         localStorage.removeItem('user')
@@ -32,9 +33,9 @@ const Main = () => {
         <section className={main.qr}>
             <div className={main.qr__content}>
                 <div className={main.qr__content_top}>
-                    <Avatar size="2xl" name={user?.name}/>
-                    <p className={main.qr__content_name}>{user?.name}</p>
-                    <p className={main.qr__content_post}>{user?.post?.toUpperCase()}</p>
+                    <Avatar size="2xl" name={user?.username}/>
+                    <p className={main.qr__content_name}>{user?.username}</p>
+                    <p className={main.qr__content_post}>{user?.position?.toUpperCase()}</p>
                 </div>
 
                 {
